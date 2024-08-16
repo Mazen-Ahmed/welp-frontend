@@ -8,9 +8,7 @@ const getHeaders = () => {
 	const locationCookieString = cookies().get("location")?.value;
 	let locationCookie;
 	try {
-		locationCookie = locationCookieString
-			? JSON.parse(locationCookieString).country
-			: undefined;
+		locationCookie = "EG";
 	} catch (error) {
 		locationCookie = undefined; // handle the case where JSON.parse fails
 	}
