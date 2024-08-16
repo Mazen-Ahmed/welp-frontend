@@ -2,11 +2,14 @@
 
 import { getCookie } from "cookies-next";
 import { Link } from "navigation";
+import { env } from "next-runtime-env";
 import Image from "next/image";
 import React from "react";
 
 const DownloadApp = ({ translation }: { translation: any }) => {
 	const locale = getCookie("NEXT_LOCALE");
+
+	console.log(env("NEXT_PUBLIC_API_URL") || process.env.NEXT_PUBLIC_API_URL);
 
 	return (
 		<div className="flex px-10 md:px-20 flex-col md:flex-row bg-orange-200 min-h-96 gap-8  py-10 md:py-0  my-10  ">
