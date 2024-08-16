@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import { PublicEnvScript } from "next-runtime-env";
-import { Noto_Kufi_Arabic } from "next/font/google";
 import ClientProviders from "providers/client-providers";
 import "styles/globals.css";
-
-const kufi = Noto_Kufi_Arabic({ subsets: ["arabic"] });
 
 export async function generateMetadata({
 	params: { locale },
@@ -39,7 +36,7 @@ export default async function RootLayout({
 			<head>
 				<PublicEnvScript />
 			</head>
-			<body className={kufi.className}>
+			<body>
 				<ClientProviders messages={messages}>
 					{children}
 				</ClientProviders>

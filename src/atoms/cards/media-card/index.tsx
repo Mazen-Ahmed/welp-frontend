@@ -16,6 +16,7 @@ const MediaCard = ({ item }: { item: MediaType }) => {
 		<div className="rounded-2xl shadow-lg overflow-hidden">
 			<Modal className={"w-full md:w-1/2 h-96 pb-1"} data={data}>
 				<Image
+					loading="lazy"
 					src={item.file}
 					className=" rounded-2xl object-contain mb-5 max-h-72 w-full"
 					width={150}
@@ -24,6 +25,7 @@ const MediaCard = ({ item }: { item: MediaType }) => {
 				/>
 			</Modal>
 			<Image
+				loading="lazy"
 				onClick={() => setIsOpened(true)}
 				src={item.file}
 				width={150}

@@ -18,6 +18,7 @@ const MenuSectorCard = ({ item }: { item: ProductType }) => {
 		<>
 			<Modal className={"w-full max-w-sm"} data={data}>
 				<Image
+					loading="lazy"
 					src={item.image}
 					className=" rounded-2xl object-cover max-h-72 w-auto"
 					width={150}
@@ -46,6 +47,7 @@ const MenuSectorCard = ({ item }: { item: ProductType }) => {
 				className="flex flex-col  text-black rounded-2xl overflow-hidden bg-white shadow-md text-xs cursor-pointer"
 				onClick={() => setIsOpened(true)}>
 				<Image
+					loading="lazy"
 					src={item.image}
 					className="  object-cover h-32 w-auto"
 					width={150}

@@ -35,7 +35,13 @@ const ContactInfo = ({ translation }: { translation: any }) => {
 
 				<div className="flex gap-2 ">
 					<Link target="_blank" href={"https://x.com/Welpusa"}>
-						<Image src="/x.svg" width={30} height={30} alt="x" />
+						<Image
+							loading="lazy"
+							src="/x.svg"
+							width={30}
+							height={30}
+							alt="x"
+						/>
 					</Link>
 					<Link
 						target="_blank"

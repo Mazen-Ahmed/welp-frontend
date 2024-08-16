@@ -19,6 +19,7 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 		<>
 			<Modal className={"w-full max-w-sm"} data={data}>
 				<Image
+					loading="lazy"
 					src={item.image}
 					className=" rounded-md object-cover max-h-72 w-auto"
 					width={150}
@@ -48,6 +49,7 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 				className="flex  justify-start p-[8px] gap-3 overflow-hidden rounded-md my-4 shadow-[0px 6px 21px 0px #00000014] bg-white cursor-pointer w-full"
 				onClick={() => setIsOpened(true)}>
 				<Image
+					loading="lazy"
 					className="rounded-md object-cover self-center h-full"
 					src={item.image}
 					width={102}

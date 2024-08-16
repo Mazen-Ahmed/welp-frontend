@@ -8,6 +8,7 @@ const Footer = ({ translation }: { translation: any }) => {
 			<div className="flex flex-col md:flex-row  bg-white rounded-t-3xl shadow-inner pt-[40px] px-5 md:px-[80px]  items-center md:items-start justify-start  md:justify-around gap-5 md:gap-14">
 				<div className="flex  md:w-full w-1/2 mx-auto  gap-2 flex-col items-start justify-center">
 					<Image
+						loading="lazy"
 						src="/logo.svg"
 						width={100}
 						height={100}
@@ -17,6 +18,7 @@ const Footer = ({ translation }: { translation: any }) => {
 					<div className="flex gap-2">
 						<Link target="_blank" href={"https://x.com/Welpusa"}>
 							<Image
+								loading="lazy"
 								src="/x.svg"
 								width={30}
 								height={30}
@@ -27,6 +29,7 @@ const Footer = ({ translation }: { translation: any }) => {
 							target="_blank"
 							href={"https://www.facebook.com/welpegy"}>
 							<Image
+								loading="lazy"
 								src="/facebook.svg"
 								width={30}
 								height={30}
@@ -38,6 +41,7 @@ const Footer = ({ translation }: { translation: any }) => {
 							target="_blank"
 							href={"https://instagram.com/welpegy"}>
 							<Image
+								loading="lazy"
 								src="/instagram.svg"
 								width={30}
 								height={30}
@@ -48,6 +52,7 @@ const Footer = ({ translation }: { translation: any }) => {
 							target="_blank"
 							href={"https://www.tiktok.com/@welpegy"}>
 							<Image
+								loading="lazy"
 								src="/tiktok.svg"
 								width={30}
 								height={30}

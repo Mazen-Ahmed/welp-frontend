@@ -44,6 +44,7 @@ const BusinessCard = ({
 				withBackground && "bg-white shadow-md"
 			}  rounded-md w-full h-80 cursor-pointer overflow-hidden hover:scale-95 duration-200 ${className}`}>
 			<Image
+				loading="lazy"
 				alt={item.name}
 				src={item.cover_image || "/header.png"}
 				width={250}

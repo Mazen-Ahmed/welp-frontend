@@ -22,7 +22,8 @@ const useBusinessesList = (currentLocation: string) => {
 
 	const category = searchParams.get("category");
 
-	const location = JSON?.parse(getCookie("location") as string);
+	const location =
+		getCookie("location") && JSON?.parse(getCookie("location") as string);
 
 	const priceCategory = useBusinessesFilterStore(
 		(state) => state.priceCategory
@@ -75,8 +76,8 @@ const useBusinessesList = (currentLocation: string) => {
 				isDeliveryAvailable,
 				finalizedSearchKeyword,
 				finalizedCity,
-				location.lat,
-				location.long,
+				location?.lat,
+				location?.long,
 				nearest || searchParams.get("city") === currentLocation
 			);
 

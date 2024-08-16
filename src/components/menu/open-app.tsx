@@ -27,7 +27,13 @@ const OpenApp = ({ deviceType }: { deviceType: string }) => {
 
 	return (
 		<div className="bg-gray-50 flex mx-3 rounded-lg justify-between mt-4 px-2 py-4 text-white">
-			<Image src={"/logo.svg"} width={60} height={30} alt="logo" />
+			<Image
+				loading="lazy"
+				src={"/logo.svg"}
+				width={60}
+				height={30}
+				alt="logo"
+			/>
 
 			<button
 				onClick={handleOpenApp}

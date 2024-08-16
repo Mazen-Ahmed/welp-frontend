@@ -10,7 +10,6 @@ import {
 import { ResponsiveBusinessesFilters } from "components";
 import { useBusinessesList } from "hooks";
 import { Link } from "navigation";
-import { env } from "next-runtime-env";
 import React, { useEffect, useMemo, useState } from "react";
 
 const BusinessesList = ({

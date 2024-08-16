@@ -14,6 +14,7 @@ const ForBusinessCard = ({
 		<div className="bg-white rounded-3xl flex flex-col gap-2 overflow-hidden">
 			<div className="w-full h-64">
 				<Image
+					loading="lazy"
 					src={image}
 					alt="for businesses"
 					width="200"
