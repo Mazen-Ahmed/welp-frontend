@@ -87,6 +87,7 @@ const AddPlacesForm = ({
 					onSubmit={handleSubmit(addPlaceHandler)}
 					className="flex flex-col gap-2 [scrollbar-width:10px] w-full  overflow-auto max-h-[82vh] py-2 px-1 ">
 					{renderField(
+						locale,
 						"text",
 						"name",
 						translation.placeName,
@@ -96,6 +97,7 @@ const AddPlacesForm = ({
 						<CiLocationOn className="w-4 h-4 text-gray-400" />
 					)}
 					{renderField(
+						locale,
 						"auto-complete",
 						"city",
 						translation.city,
@@ -109,6 +111,7 @@ const AddPlacesForm = ({
 						}
 					)}
 					{renderField(
+						locale,
 						"text",
 						"address",
 						translation.address,
@@ -119,6 +122,7 @@ const AddPlacesForm = ({
 					)}
 
 					{renderField(
+						locale,
 						"text-area",
 						"description",
 						translation.description,

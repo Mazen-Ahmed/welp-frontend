@@ -4,6 +4,7 @@ import { AutoComplete, TextInputWithIcon } from "atoms";
 import { getCookie } from "cookies-next";
 import { months } from "data";
 import { OpeningHoursType } from "interfaces";
+import { useLocale } from "next-intl";
 import { ReactNode } from "react";
 import { Controller } from "react-hook-form";
 
@@ -67,6 +68,7 @@ export const textLimitHandler = (text: string, maxLength: number) => {
 };
 
 export const renderFormFieldByType = (
+	locale: string,
 	type: string,
 	name: string,
 	label: string,
@@ -148,6 +150,7 @@ export const renderFormFieldByType = (
 };
 
 export const renderField = (
+	locale: string,
 	type: string,
 	name: string,
 	label: string,
@@ -166,6 +169,7 @@ export const renderField = (
 			name={name}
 			render={({ field }) =>
 				renderFormFieldByType(
+					locale,
 					type,
 					name,
 					label,

@@ -1,6 +1,7 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useLocale } from "next-intl";
 import { useForm } from "react-hook-form";
 import { FaPhone } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
@@ -11,6 +12,7 @@ import { renderField } from "utils";
 const BusinessRequestForm = ({ translation }: { translation: any }) => {
 	const schema = businessRequestFormSchema();
 
+	const locale = useLocale();
 	const {
 		control,
 		handleSubmit,
@@ -21,6 +23,7 @@ const BusinessRequestForm = ({ translation }: { translation: any }) => {
 	return (
 		<form className="flex flex-col gap-2 w-full px-2 py-3">
 			{renderField(
+				locale,
 				"text",
 				"name",
 				translation.name,
@@ -30,6 +33,7 @@ const BusinessRequestForm = ({ translation }: { translation: any }) => {
 				<IoPerson className="w-4 h-4 text-gray-400" />
 			)}
 			{renderField(
+				locale,
 				"text",
 				"email",
 				translation.email,
@@ -39,6 +43,7 @@ const BusinessRequestForm = ({ translation }: { translation: any }) => {
 				<MdEmail className="w-4 h-4 text-gray-400" />
 			)}
 			{renderField(
+				locale,
 				"text",
 				"phone",
 				translation.phone,
@@ -48,6 +53,7 @@ const BusinessRequestForm = ({ translation }: { translation: any }) => {
 				<FaPhone className="w-4 h-4 text-gray-400" />
 			)}
 			{renderField(
+				locale,
 				"text-area",
 				"message",
 				translation.message,

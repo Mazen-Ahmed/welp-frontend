@@ -33,7 +33,7 @@ const CustomSwiper = ({
 					<div className="relative z-0">
 						<Swiper
 							modules={[Navigation, FreeMode]}
-							freeMode={true}
+							freeMode={false}
 							navigation={{
 								nextEl: `#${className}-right`,
 								prevEl: `#${className}-left`,
