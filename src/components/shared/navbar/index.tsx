@@ -1,6 +1,6 @@
 "use client";
 
-import { Modal, SearchInput } from "atoms";
+import { Modal, SearchInput, LocalSwitcher } from "atoms";
 import { AddPlacesForm } from "components";
 import { getCookie, setCookie } from "cookies-next";
 // @ts-ignore
@@ -135,17 +135,20 @@ const Navbar = ({
 			}			
 			  w-full `}>
 			<div
-				className={`flex items-center gap-2 md:gap-12 justify-between  px-5 md:px-10 h-14 lg:h-20`}>
+				className={`flex items-center gap-2 md:gap-[32px] justify-between  px-5 md:px-10 h-14 lg:h-20`}>
 				{(!isMobile || (isMobile && !hasOpenAppButton)) && (
-					<Link href={"/"}>
-						<Image
-							src="/logo.svg"
-							width={100}
-							height={100}
-							alt="logo"
-							className="h-20 w-20 lg:w-52 lg:h-52"
-						/>
-					</Link>
+					<div className="flex gap-[24px] items-center w-40">
+						<Link href={"/"}>
+							<Image
+								src="/logo.svg"
+								width={100}
+								height={100}
+								alt="logo"
+								className="h-20 w-20 shrink-0 lg:w-52 lg:h-52"
+							/>
+						</Link>
+						<LocalSwitcher translation={{}} />
+					</div>
 				)}
 				{isMobile && hasOpenAppButton && (
 					<div className="w-full flex items-center gap-10">
@@ -173,6 +176,7 @@ const Navbar = ({
 								className="h-14 w-14 lg:w-52 lg:h-52"
 							/>
 						</Link>
+						<LocalSwitcher translation={{}} />
 					</div>
 				)}
 				<SearchInput
@@ -181,7 +185,7 @@ const Navbar = ({
 					className="hidden lg:flex"
 					translation={translation}
 				/>
-				<div className="items-center justify-between hidden gap-7 lg:flex  ">
+				<div className="items-center justify-between hidden gap-[10px] lg:flex  ">
 					<Link
 						className={`flex items-center justify-center gap-2  whitespace-nowrap text-[20px]
 						${isActive("/") ? "text-yellow-400" : "hover:text-yellow-400"}`}

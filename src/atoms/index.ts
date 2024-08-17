@@ -24,6 +24,7 @@ import CitiesLoader from "./loaders/skeleton/cities-loader";
 import ProductsLoader from "./loaders/skeleton/products";
 import ReviewsLoader from "./loaders/skeleton/reviews";
 import TagsLoader from "./loaders/skeleton/tags";
+import LocalSwitcher from "./locale-switcher";
 import CustomMap from "./map";
 import CustomPagination from "./pagination";
 import RadioButton from "./radio";
@@ -40,6 +41,7 @@ const Modal = dynamic(() => import("./modal/index"), {
 
 export {
 	FileInput,
+	LocalSwitcher,
 	BusinessHorizontalCard,
 	FileLink,
 	TextInputWithIcon,
