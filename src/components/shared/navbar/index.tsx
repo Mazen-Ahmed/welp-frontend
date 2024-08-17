@@ -324,16 +324,12 @@ const Navbar = ({
 					onClick={toggleOpenedHandler}>
 					{translation.blog}
 				</Link>
-				<Link
-					className={`flex items-center justify-center gap-2 whitespace-nowrap text-white bg-secondary p-2 rounded-full  ${
-						!isActive("/contact") && "hover:text-yellow-400"
-					}`}
-					href={"/contact"}
-					onClick={toggleOpenedHandler}>
+				<button
+					className={`flex items-center justify-center gap-2 whitespace-nowrap text-white bg-secondary p-2 rounded-full`}
+					onClick={() => setIsModalOpened((prev) => !prev)}>
 					<FaPlus />
-
 					{translation.addPlace}
-				</Link>
+				</button>
 			</div>
 
 			<div
