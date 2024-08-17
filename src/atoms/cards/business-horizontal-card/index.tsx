@@ -43,7 +43,7 @@ const BusinessHorizontalCard = ({
 			<Image
 				loading="lazy"
 				className=" object-fill self-center h-[114px] w-[114px] rounded-[15px]"
-				src={item.cover_image}
+				src={item.cover_image || "/header.png"}
 				width={102}
 				height={90}
 				style={{ borderRadius: 5 }}
