@@ -1,13 +1,13 @@
 "use client";
 
-import { getCookie } from "cookies-next";
 import { Link } from "navigation";
+import { useLocale } from "next-intl";
 import { env } from "next-runtime-env";
 import Image from "next/image";
 import React from "react";
 
 const DownloadApp = ({ translation }: { translation: any }) => {
-	const locale = getCookie("NEXT_LOCALE");
+	const locale = useLocale();
 
 	console.log(env("NEXT_PUBLIC_API_URL") || process.env.NEXT_PUBLIC_API_URL);
 
