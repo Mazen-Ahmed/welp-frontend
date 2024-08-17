@@ -1,14 +1,10 @@
 "use client";
 
 import { AutoComplete, TextInputWithIcon } from "atoms";
-import { getCookie } from "cookies-next";
 import { months } from "data";
 import { OpeningHoursType } from "interfaces";
-import { useLocale } from "next-intl";
 import { ReactNode } from "react";
 import { Controller } from "react-hook-form";
-
-const locale = getCookie("NEXT_LOCALE");
 
 const getISODay = function () {
 	return ((new Date().getDay() + 6) % 7) + 1;
