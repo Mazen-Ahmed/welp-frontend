@@ -40,5 +40,6 @@ jobs:
                 script: |
                   cd /srv/welp-frontend/.docker
                   docker compose down
+                  docker system prune --all --force
                   docker compose pull
                   docker compose up prod -d
