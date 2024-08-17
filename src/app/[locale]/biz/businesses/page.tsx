@@ -34,7 +34,6 @@ const BusinessesListPage = ({ params }: { params: any }) => {
 					offersDelivery: businessT("offersDelivery"),
 					currentLocation: navbarT("currentLocation"),
 				}}
-				locale={params.locale}
 			/>
 		</div>
 	);

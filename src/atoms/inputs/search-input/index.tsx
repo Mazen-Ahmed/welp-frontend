@@ -5,6 +5,7 @@ import { getCookie, setCookie } from "cookies-next";
 import * as lookup from "coordinate_to_country";
 import { CityType } from "interfaces";
 import { useRouter, usePathname } from "navigation";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState, useCallback } from "react";
@@ -44,7 +45,7 @@ const SearchInput = ({
 
 	const listRef = useRef<HTMLDivElement>(null);
 
-	const locale = getCookie("NEXT_LOCALE");
+	const locale = useLocale();
 
 	const createQueryString = useCallback(
 		(name: string, value: any) => {

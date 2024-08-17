@@ -83,6 +83,7 @@ const AddPlacesForm = ({
 				</div>
 			) : (
 				<form
+					dir={locale === "ar" ? "rtl" : "ltr"}
 					onSubmit={handleSubmit(addPlaceHandler)}
 					className="flex flex-col gap-2 [scrollbar-width:10px] w-full  overflow-auto max-h-[82vh] py-2 px-1 ">
 					{renderField(

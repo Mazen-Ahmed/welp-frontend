@@ -10,21 +10,18 @@ import {
 import { ResponsiveBusinessesFilters } from "components";
 import { useBusinessesList } from "hooks";
 import { Link } from "navigation";
+import { useLocale } from "next-intl";
 import React, { useEffect, useMemo, useState } from "react";
 
-const BusinessesList = ({
-	locale,
-	translation,
-}: {
-	locale: string;
-	translation: any;
-}) => {
+const BusinessesList = ({ translation }: { translation: any }) => {
 	const { businesses, page, setPage, count, loading } = useBusinessesList(
 		translation.currentLocation
 	);
 	const [windowWidth, setWindowWidth] = useState<number>(
 		typeof window !== "undefined" ? window.innerWidth : 0
 	);
+
+	const locale = useLocale();
 
 	useEffect(() => {
 		const handleResize = () => setWindowWidth(window.innerWidth);
