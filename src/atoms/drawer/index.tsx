@@ -1,6 +1,6 @@
 "use client";
 
-import { getCookie } from "cookies-next";
+import { useLocale } from "next-intl";
 import React, { ReactNode, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -23,7 +23,7 @@ const Drawer = ({
 		}
 	};
 
-	const locale = getCookie("NEXT_LOCALE");
+	const locale = useLocale();
 
 	useEffect(() => {
 		toggleBodyScroll(opened);

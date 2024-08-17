@@ -1,6 +1,6 @@
 "use client";
 
-import { getCookie } from "cookies-next";
+import { useLocale } from "next-intl";
 import { useState } from "react";
 import { IoChevronDown } from "react-icons/io5";
 
@@ -28,7 +28,7 @@ const Autocomplete = ({
 	const [filteredOptions, setFilteredOptions] = useState<Array<Option>>([]);
 	const [isFocused, setIsFocused] = useState(false);
 
-	const locale = getCookie("NEXT_LOCALE");
+	const locale = useLocale();
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;

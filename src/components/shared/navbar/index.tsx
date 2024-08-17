@@ -7,6 +7,7 @@ import { getCookie, setCookie } from "cookies-next";
 import * as lookup from "coordinate_to_country";
 import { useCitiesList } from "hooks";
 import { Link, usePathname } from "navigation";
+import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
@@ -35,7 +36,7 @@ const Navbar = ({
 
 	const [searchOpened, setSearchOpened] = useState<boolean>(false);
 
-	const locale = getCookie("NEXT_LOCALE");
+	const locale = useLocale();
 
 	const pathname = usePathname();
 
