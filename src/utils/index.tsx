@@ -75,6 +75,8 @@ export const renderFormFieldByType = (
 	options?: Array<any>,
 	additionalOnChange?: any
 ) => {
+	console.log(locale);
+
 	switch (type) {
 		case "text":
 			return (
