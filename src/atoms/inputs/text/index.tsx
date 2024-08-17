@@ -1,5 +1,4 @@
-import { getCookie } from "cookies-next";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { useLocale } from "next-intl";
 
 const TextInputWithIcon = ({
 	label,
@@ -14,7 +13,7 @@ const TextInputWithIcon = ({
 	icon: any;
 	error: any;
 }) => {
-	const locale = getCookie("NEXT_LOCALE");
+	const locale = useLocale();
 
 	return (
 		<div
