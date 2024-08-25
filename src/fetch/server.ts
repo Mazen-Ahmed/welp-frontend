@@ -26,7 +26,7 @@ const getHeaders = async () => {
 	if (languageCookie) headers["Accept-Language"] = languageCookie;
 	if (locationCookie) headers["X-Country-Code"] = locationCookie;
 	headers["Content-Type"] = "application/json";
-	headers["app-id"] = "WEBSITE";
+	headers["App-ID"] = "WEBSITE";
 
 	return headers;
 };

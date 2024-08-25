@@ -12,7 +12,7 @@ const getAuthHeader = () => {
 };
 
 const sharedHeaders: any = {
-	"App-Id": appId as string,
+	"App-ID": appId as string,
 	"X-Country-Code": getCookie("location")
 		? JSON?.parse(getCookie("location") as string)?.country
 		: "EG",

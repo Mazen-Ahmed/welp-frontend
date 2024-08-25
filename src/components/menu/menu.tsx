@@ -29,6 +29,7 @@ const Menu = ({ slug }: { slug: string }) => {
 	);
 
 	const sliderRef = useRef<HTMLDivElement>(null);
+
 	const [isOverflowed, setIsOverflowed] = useState(false);
 
 	useEffect(() => {

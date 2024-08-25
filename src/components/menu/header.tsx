@@ -29,7 +29,7 @@ const BusinessHeader = ({ business }: any) => {
 			<div className="w-full flex-1 flex flex-col gap-4">
 				<div className="flex justify-between gap-1">
 					<Link
-						href={`/biz/businesses/${slug}`}
+						href={`/biz/${slug}`}
 						className="text-black font-extrabold text-[16px]">
 						{name}
 					</Link>

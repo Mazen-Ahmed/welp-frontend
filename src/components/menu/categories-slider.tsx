@@ -2,7 +2,8 @@
 
 import { Chip, TagsLoader } from "atoms";
 import { CategoryType, ProductTypesType } from "interfaces";
-import { useMemo } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo } from "react";
 
 const CategoriesSlider = ({
 	active,
@@ -25,6 +26,10 @@ const CategoriesSlider = ({
 	createQueryString: Function;
 	sliderRef: any;
 }) => {
+	const searchParams = useSearchParams();
+
+	const type = searchParams.get("type");
+
 	const loaders = useMemo(() => {
 		const loaders = [];
 		for (let i = 0; i < 4; i++) {
@@ -35,10 +40,13 @@ const CategoriesSlider = ({
 
 	const chipClickHandler = (id: number) => {
 		if (!productsLoading) {
-			setActive(id);
 			router.push(pathname + "?" + createQueryString("type", id));
 		}
 	};
+
+	useEffect(() => {
+		setActive(parseInt(type as string));
+	}, [type]);
 
 	return (
 		<div

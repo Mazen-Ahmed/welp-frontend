@@ -21,8 +21,8 @@ const CategoryItemDropdown: React.FC<any> = ({
 					<Link
 						href={
 							searchKeyword
-								? `/biz/businesses?category=${item.id}&search=${searchKeyword}`
-								: `/biz/businesses?category=${item.id}`
+								? `/biz?category=${item.id}&search=${searchKeyword}`
+								: `/biz?category=${item.id}`
 						}>
 						<div className=" hover:bg-gray-100 duration-150 p-1 rounded-md w-full">
 							{item.name}

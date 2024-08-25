@@ -31,6 +31,17 @@ const useCategoriesList = (slug: string) => {
 		[searchParams]
 	);
 
+	const removeQueryParam = useCallback(
+		(name: string, pathname: string) => {
+			if (name) {
+				const params = new URLSearchParams(searchParams.toString());
+				params.delete(name);
+				router.push(pathname + "?" + params);
+			}
+		},
+		[searchParams]
+	);
+
 	useEffect(() => {
 		if (slug) {
 			setLoading(true);
@@ -61,6 +72,7 @@ const useCategoriesList = (slug: string) => {
 		data,
 		loading,
 		createQueryString,
+		removeQueryParam,
 		router,
 		pathname,
 	};

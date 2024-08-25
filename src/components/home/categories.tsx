@@ -39,8 +39,8 @@ const Categories = ({
 							}`}
 							href={
 								searchKeyword
-									? `/biz/businesses?category=${item.id}&search=${searchKeyword}`
-									: `/biz/businesses?category=${item.id}`
+									? `/biz?category=${item.id}&search=${searchKeyword}`
+									: `/biz?category=${item.id}`
 							}>
 							<CategoriesItem
 								text={item.name}

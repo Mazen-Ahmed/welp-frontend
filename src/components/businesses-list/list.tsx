@@ -84,7 +84,7 @@ const BusinessesList = ({ translation }: { translation: any }) => {
 					{!loading &&
 						businesses.map((item) => (
 							<Link
-								href={`/biz/businesses/${item.slug || item.id}`}
+								href={`/biz/${item.slug || item.id}`}
 								key={item.id}>
 								{windowWidth <= 700 ? (
 									<BusinessHorizontalCard

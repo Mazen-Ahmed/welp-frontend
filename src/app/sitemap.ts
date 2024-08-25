@@ -6,7 +6,7 @@ const pathnames = [
 	"/users",
 	"/categories",
 	"/businesses",
-	"/biz/businesses",
+	"/biz",
 	"/download",
 	"/contact",
 	"/privacy",

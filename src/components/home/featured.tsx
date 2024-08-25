@@ -39,7 +39,7 @@ const Featured = ({
 				className="featuredSwiper">
 				{featuredBusinesses.map((item) => (
 					<SwiperSlide className="py-2 w-full md:w-1/3" key={item.id}>
-						<Link href={`/biz/businesses/${item.slug || item.id}`}>
+						<Link href={`/biz/${item.slug || item.id}`}>
 							<BusinessCard
 								withBackground
 								item={item}
