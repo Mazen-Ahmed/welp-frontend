@@ -22,7 +22,7 @@ const MenuSector = ({
 				</div>
 				<hr className="my-3" />
 				<Link
-					href={`/biz/businesses/${slug}/menu`}
+					href={`/biz/${slug}/menu`}
 					className="text-yellow-500 font-bold text-lg ">
 					{translation.seeAll}
 				</Link>

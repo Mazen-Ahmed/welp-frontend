@@ -1,5 +1,6 @@
 import * as client from "fetch/client";
 import * as server from "fetch/server";
+import { notFound } from "next/navigation";
 import { toast } from "react-toastify";
 
 export const getBusinessesList = async (
@@ -77,9 +78,15 @@ export const getHomePageData = async () => {
 };
 
 export const getBusiness = async (slug: string) => {
-	const { data } = await server.get(`businesses/${slug}`);
+	try {
+		const { data } = await server.get(`businesses/${slug}`);
 
-	return data;
+		return data;
+	} catch (error: any) {
+		if (error?.message.includes(404)) {
+			return notFound();
+		}
+	}
 };
 
 export const getBusinessProductTypes = async (businessSlug: string) => {

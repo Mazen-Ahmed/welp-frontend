@@ -47,7 +47,7 @@ const Navbar = ({
 	const linksWithWhiteBackground = [
 		"/categories",
 		"/businesses",
-		"/biz/businesses",
+		"/biz",
 		"/terms",
 		"/privacy",
 	];
@@ -126,7 +126,6 @@ const Navbar = ({
 
 	return (
 		<div
-			dir="ltr"
 			className={`
 			${
 				withWhiteBackground || opened || searchOpened
@@ -296,7 +295,6 @@ const Navbar = ({
 			</div>
 
 			<div
-				dir={locale === "ar" ? "rtl" : "ltr"}
 				className={`flex lg:hidden flex-col items-start justify-start ease-out duration-100 gap-10 px-5  ${
 					opened
 						? "max-h-96 py-4 border-t border-gray-300"
@@ -333,7 +331,6 @@ const Navbar = ({
 			</div>
 
 			<div
-				dir={locale === "ar" ? "rtl" : "ltr"}
 				className={`flex lg:hidden flex-col items-start justify-start ease-out duration-100 gap-10 px-5  ${
 					searchOpened
 						? "max-h-96 py-4 border-t border-gray-300"

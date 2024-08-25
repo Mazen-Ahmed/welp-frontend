@@ -24,13 +24,19 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 	const data = await getBusiness(slug);
 
 	return {
-		title: data.name,
-		description: data.description,
-		keywords: ["مطعم", "مينيو", "ويلب", ...data.name.split(" ")],
+		title: data?.name,
+		description: data?.description,
+		keywords: [
+			"مطعم",
+			"مينيو",
+			"ويلب",
+			data?.name,
+			...data?.name.split(" "),
+		],
 		openGraph: {
 			images: [
 				{
-					url: data.cover_image,
+					url: data?.cover_image,
 				},
 			],
 		},

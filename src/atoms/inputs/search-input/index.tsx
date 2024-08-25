@@ -106,7 +106,7 @@ const SearchInput = ({
 
 		const queryParams = queryString.join("&");
 
-		if (pathname === "/biz/businesses") {
+		if (pathname === "/biz") {
 			const SP = new URLSearchParams(searchParams.toString());
 
 			if (hasSearchParam) {
@@ -123,9 +123,7 @@ const SearchInput = ({
 
 			router.push(pathname + "?" + SP.toString());
 		} else {
-			router.push(
-				`/biz/businesses${queryParams ? "?" + queryParams : ""}`
-			);
+			router.push(`/biz${queryParams ? "?" + queryParams : ""}`);
 		}
 
 		setSearchKeyword(keyword || null);
@@ -197,7 +195,6 @@ const SearchInput = ({
 	if (!locale) return <div className="h-10 md:h-12 w-full"></div>;
 	return (
 		<div
-			dir={locale === "ar" ? "rtl" : "ltr"}
 			className={`rounded-full h-10 md:h-12 w-full relative justify-start shadow-searchInputShadow bg-white flex text-gray-600 gap-1 items-center ${className} `}>
 			<div className="flex items-center w-11/12 h-full gap-2 border-e-2 border-solid ps-3 border-gray-200">
 				<FaSearch className="text-gray-400" />
@@ -288,7 +285,7 @@ const SearchInput = ({
 										setCityValue(city.name);
 										setShowCities(false);
 										setCity(city.id);
-										if (pathname === "/biz/businesses")
+										if (pathname === "/biz")
 											searchHandler();
 									}}
 									key={city.id}

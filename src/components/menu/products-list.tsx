@@ -47,7 +47,7 @@ const ProductsList = ({
 			)}
 
 			{!loading && data?.results.length === 0 && (
-				<div className="text-secondary h-44 flex items-end justify-center">
+				<div className="text-secondary h-44 flex items-center justify-center">
 					لا يوجد منتجات
 				</div>
 			)}
