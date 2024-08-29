@@ -1,6 +1,6 @@
 "use server";
 
-import { apiBaseURL } from "config";
+import { apiBaseURL, appId } from "config";
 import { getLocale } from "next-intl/server";
 import { cookies } from "next/headers";
 import { toast } from "react-toastify";
@@ -26,7 +26,7 @@ const getHeaders = async () => {
 	if (languageCookie) headers["Accept-Language"] = languageCookie;
 	if (locationCookie) headers["X-Country-Code"] = locationCookie;
 	headers["Content-Type"] = "application/json";
-	headers["App-ID"] = "WEBSITE";
+	headers["App-ID"] = appId as string;
 
 	return headers;
 };

@@ -1,12 +1,16 @@
 import { locales } from "navigation";
 import createMiddleware from "next-intl/middleware";
+import { type NextRequest, type NextResponse } from "next/server";
 
-export default createMiddleware({
+const nextIntlMiddleware = createMiddleware({
 	localePrefix: "never",
 	locales,
 	defaultLocale: "ar",
-	localeDetection: false,
 });
+
+export default function (req: NextRequest): NextResponse {
+	return nextIntlMiddleware(req);
+}
 
 export const config = {
 	matcher: ["/", "/(ar|en)/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],

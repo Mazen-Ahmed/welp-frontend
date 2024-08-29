@@ -1,4 +1,5 @@
 import { CityType } from "interfaces";
+import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { getCitiesList } from "services";
 import { useCitiesStore } from "store/cities";
@@ -10,23 +11,24 @@ const useCitiesList = () => {
 
 	const { cities: citiesList, setCities } = useCitiesStore((state) => state);
 
-	useEffect(() => {
-		if (citiesList?.length > 0) {
-			setData(citiesList);
-			setLoading(false);
-		} else {
-			setLoading(true);
-			getCitiesList()
-				.then((res) => {
-					setData(res?.data);
+	const locale = useLocale();
 
-					setCities(res?.data);
-				})
-				.finally(() => {
-					setLoading(false);
-				});
-		}
-	}, []);
+	const listCitiesAction = () => {
+		setLoading(true);
+		getCitiesList()
+			.then((res) => {
+				setData(res?.data);
+
+				setCities(res?.data);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
+	};
+
+	useEffect(() => {
+		listCitiesAction();
+	}, [locale]);
 
 	return {
 		data,

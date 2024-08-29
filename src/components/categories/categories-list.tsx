@@ -8,13 +8,13 @@ import { useCategoriesStore } from "store/categories";
 const CategoriesList = ({
 	locale,
 	translation,
+	categories,
 }: {
 	locale: string;
 	translation: any;
+	categories: CategoryType[];
 }) => {
 	const [opened, setOpened] = useState<number | null>(null);
-
-	const categories = useCategoriesStore((state) => state.filteredCategories);
 
 	const searchKeyword = useCategoriesStore((state) => state.searchKeyword);
 

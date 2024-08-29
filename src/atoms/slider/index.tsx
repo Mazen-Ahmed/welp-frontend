@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { ReactNode, useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
@@ -22,16 +23,19 @@ const CustomSwiper = ({
 
 	const swiper = useSwiper();
 
+	const locale = useLocale();
+
 	useEffect(() => {
 		setDomLoaded(true);
 	}, []);
 
 	return (
-		<div className="py-2 md:px-10 lg:px-10 ">
+		<div className="py-2 md:px-10 lg:px-10 w-full ">
 			{domLoaded ? (
-				<div className="container flex flex-col justify-center px-5 py-2 rounded-md min-h-96 ">
+				<div className=" flex flex-col justify-center  py-2 rounded-md min-h-96 w-full">
 					<div className="relative z-0">
 						<Swiper
+							dir={locale === "ar" ? "rtl" : "ltr"}
 							modules={[Navigation, FreeMode]}
 							freeMode={false}
 							navigation={{
@@ -57,7 +61,11 @@ const CustomSwiper = ({
 									"cursor-not-allowed"
 								} bg-black text-white rounded-full flex items-center justify-center p-1 arrow-left`}
 								disabled={swiper && swiper.isEnd}>
-								<IoIosArrowForward className="w-5 h-5" />
+								<IoIosArrowForward
+									className={`w-5 h-5 ${
+										locale === "en" && "rotate-180"
+									}`}
+								/>
 							</button>
 							<button
 								id={`${className}-right`}
@@ -67,7 +75,11 @@ const CustomSwiper = ({
 									"cursor-not-allowed"
 								} bg-black text-white rounded-full flex items-center justify-center p-1 arrow-right`}
 								disabled={swiper && swiper.isBeginning}>
-								<IoIosArrowBack className="w-5 h-5" />
+								<IoIosArrowBack
+									className={`w-5 h-5 ${
+										locale === "en" && "rotate-180"
+									}`}
+								/>
 							</button>
 						</div>
 					</div>

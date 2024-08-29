@@ -2,6 +2,31 @@ import { apiBaseURL, appId } from "config";
 import { getCookie } from "cookies-next";
 import { toast } from "react-toastify";
 
+const sharedHeaders = () => {
+	const locale = getCookie("NEXT_LOCALE");
+
+	const locationCookieString = getCookie("location");
+
+	let locationCookie;
+
+	try {
+		locationCookie = locationCookieString
+			? JSON.parse(locationCookieString).country
+			: undefined;
+	} catch (error) {
+		locationCookie = undefined; // handle the case where JSON.parse fails
+	}
+	const languageCookie = locale;
+
+	// Construct headers without undefined values
+	const headers: Record<string, string> = {};
+	if (languageCookie) headers["Accept-Language"] = languageCookie;
+	if (locationCookie) headers["X-Country-Code"] = locationCookie;
+	headers["Content-Type"] = "application/json";
+	headers["App-ID"] = appId as string;
+
+	return headers;
+};
 const getAuthHeader = () => {
 	const tokenCookie = `Bearer ${getCookie("clientToken")}`;
 
@@ -9,14 +34,6 @@ const getAuthHeader = () => {
 	if (tokenCookie) headers["Authorization"] = tokenCookie;
 
 	return headers;
-};
-
-const sharedHeaders: any = {
-	"App-ID": appId as string,
-	"X-Country-Code": getCookie("location")
-		? JSON?.parse(getCookie("location") as string)?.country
-		: "EG",
-	"Accept-Language": "AR",
 };
 
 export const post = async (
@@ -103,7 +120,7 @@ export const del = async (path: string, withAuth = false) => {
 
 export const get = async (path: string, withAuth = false) => {
 	const res = await fetch(`${apiBaseURL}/${path}`, {
-		headers: sharedHeaders,
+		headers: sharedHeaders(),
 	});
 
 	const data = await res.json();

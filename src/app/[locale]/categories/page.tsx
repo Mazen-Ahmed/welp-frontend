@@ -14,16 +14,17 @@ const Categories: React.FC<any> = async ({ params }: { params: any }) => {
 			<h1 className="text-5xl font-semibold text-center">
 				{categoriesT("allCategories")}
 			</h1>
-			<CategoriesSearchInput
+			{/* <CategoriesSearchInput
 				translation={{
 					search: categoriesT("searchCategories"),
 				}}
 				fetchedCategories={categories}
-			/>
+			/> */}
 			<CategoriesList
 				translation={{
 					noCategories: categoriesT("noCategories"),
 				}}
+				categories={categories}
 				locale={params.locale}
 			/>
 		</div>
