@@ -16,6 +16,7 @@ import FileLink from "./file-link";
 import AutoComplete from "./inputs/auto-complete";
 import CategoriesSearchInput from "./inputs/categories-search-input";
 import FileInput from "./inputs/file";
+import SearchInput from "./inputs/search-input";
 import TextInputWithIcon from "./inputs/text";
 import CircularLoader from "./loaders/circular";
 import ProgressBar from "./loaders/progress-bar";
@@ -30,10 +31,6 @@ import CustomPagination from "./pagination";
 import RadioButton from "./radio";
 import CustomSwiper from "./slider";
 import dynamic from "next/dynamic";
-
-const SearchInput = dynamic(() => import("./inputs/search-input"), {
-	ssr: false,
-});
 
 const Modal = dynamic(() => import("./modal/index"), {
 	ssr: false,

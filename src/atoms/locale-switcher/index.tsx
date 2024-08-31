@@ -2,36 +2,68 @@
 
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
 import { IoChevronDown } from "react-icons/io5";
-
-// Import setCookie from cookies-next
 
 const LocalSwitcher = () => {
 	const [opened, setOpened] = useState<boolean>(false);
-
+	const [localeLoaded, setLocaleLoaded] = useState<boolean>(false);
 	const locale = useLocale();
+	const router = useRouter();
+	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	const handleLocaleChange = (newLocale: string) => {
 		if (locale !== newLocale) {
 			document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-			window.location.reload();
+			router.refresh();
 			setOpened(false);
 		}
 	};
 
+	useEffect(() => {
+		setLocaleLoaded(true);
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				dropdownRef.current &&
+				!dropdownRef.current.contains(event.target as Node)
+			) {
+				setOpened(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [dropdownRef]);
+
 	return (
-		<div className="relative">
+		<div className="relative" ref={dropdownRef}>
 			<button
 				onClick={() => setOpened((prev) => !prev)}
 				style={{ boxShadow: "0px 0px 6px 0px #00000040" }}
 				className="bg-white flex h-[35px] min-w-[60px] justify-between gap-[8px] items-center rounded-full px-[8px] py-[5px]">
-				<Image
-					src={locale === "ar" ? "/egypt.svg" : "/america.svg"}
-					width={20}
-					height={20}
-					alt="country"
-				/>
+				{localeLoaded ? (
+					locale === "ar" ? (
+						<Image
+							src="/egypt.svg"
+							width={20}
+							height={20}
+							alt="country"
+						/>
+					) : (
+						<Image
+							src="/america.svg"
+							width={20}
+							height={20}
+							alt="country"
+						/>
+					)
+				) : (
+					<div className="bg-gray-200 animate-pulse w-[20px] h-[20px] rounded-full" />
+				)}
 				<IoChevronDown
 					className={`text-black w-4 h-4 shrink-0 duration-150 ${
 						opened ? "rotate-180" : "rotate-0"
@@ -39,7 +71,6 @@ const LocalSwitcher = () => {
 				/>
 			</button>
 			<div
-				onBlur={() => setOpened(false)}
 				style={{ zIndex: 999 }}
 				className={`absolute min-w-36
 					duration-150

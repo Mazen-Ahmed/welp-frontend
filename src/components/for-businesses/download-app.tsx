@@ -18,9 +18,7 @@ const DownloadBusinessApp = ({ translation }: { translation: any }) => {
 			<div className="flex flex-1 flex-col gap-[30px] md:gap-[50px] order-3 md:order-1">
 				<div className="font-bold text-[40px] md:text-nowrap hidden md:block ">
 					<h1>{translation.downloadNow}</h1>
-					<h1 className="mt-[10px] md:mt-[20px]">
-						{translation.startWork}
-					</h1>
+					<h1>{translation.startWork}</h1>
 				</div>
 				<div className=" flex items-center md:items-start gap-[23px] md:gap-10">
 					<Image

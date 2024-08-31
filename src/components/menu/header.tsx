@@ -1,8 +1,8 @@
 "use client";
 
 import { Chip } from "atoms";
-import { Link } from "navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { getOpenedHourHandler } from "utils";
 
 const BusinessHeader = ({ business }: any) => {

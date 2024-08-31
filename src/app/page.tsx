@@ -1,4 +1,3 @@
-import { unstable_setRequestLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic"; // defaults to auto

@@ -1,5 +1,5 @@
-import { Link } from "navigation";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const UsersDownloadHeader = ({ translation }: { translation: any }) => {
@@ -10,8 +10,11 @@ const UsersDownloadHeader = ({ translation }: { translation: any }) => {
 				background:
 					"linear-gradient(97.55deg, rgba(255, 0, 0, 0.3) -2.18%, rgba(243, 179, 1, 0.3) 94.39%)",
 			}}>
-			<h1 className="  my-4 text-black text-center text-[35px] md:text-[60px]">
+			<h1 className="  my-3 text-black text-center text-[35px] md:text-[40px]">
 				{translation.header}
+			</h1>
+			<h1 className="  my-3 text-black text-center text-[35px] md:text-[40px]">
+				{translation.getOffers}
 			</h1>
 			<div className=" flex gap-10">
 				<Link

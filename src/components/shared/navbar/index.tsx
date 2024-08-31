@@ -6,9 +6,10 @@ import { getCookie, setCookie } from "cookies-next";
 // @ts-ignore
 import * as lookup from "coordinate_to_country";
 import { useCitiesList } from "hooks";
-import { Link, usePathname } from "navigation";
 import { useLocale } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { SlMagnifier } from "react-icons/sl";

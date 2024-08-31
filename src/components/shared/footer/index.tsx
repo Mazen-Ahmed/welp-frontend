@@ -1,5 +1,5 @@
-import { Link } from "navigation";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = ({ translation }: { translation: any }) => {
@@ -14,7 +14,6 @@ const Footer = ({ translation }: { translation: any }) => {
 						height={100}
 						alt="logo"
 					/>
-					<p className="font-bold">{translation.bestPlatform}</p>
 					<div className="flex gap-2">
 						<Link target="_blank" href={"https://x.com/Welpusa"}>
 							<Image

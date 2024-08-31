@@ -9,8 +9,8 @@ import {
 } from "atoms";
 import { ResponsiveBusinessesFilters } from "components";
 import { useBusinessesList } from "hooks";
-import { Link } from "navigation";
 import { useLocale } from "next-intl";
+import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 
 const BusinessesList = ({ translation }: { translation: any }) => {
@@ -77,7 +77,7 @@ const BusinessesList = ({ translation }: { translation: any }) => {
 			<div className="col-span-4 lg:col-span-3 w-full min-h-screen">
 				<div className="grid grid-cols-1 md:grid-cols-3 md:gap-5">
 					{loading &&
-						(windowWidth <= 700 ? horizontalLoaders : loaders)}
+						(windowWidth < 700 ? horizontalLoaders : loaders)}
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-3 md:gap-5">

@@ -57,7 +57,8 @@
 		"download": "Download the app and get the benefits",
 		"available": "Available on Google Play and App Store",
 		"downloadItOn": "Download it on",
-		"getItOn": "Get it on"
+		"getItOn": "Get it on",
+		"exploreCities": "Discover the most beautiful cities of Egypt like you've never seen before. Recommendations for the best places to go out and have fun."
 	},
 	"business": {
 		"about": "About",
@@ -91,7 +92,12 @@
 		"expensive": "Very High",
 		"suggested": "Suggested",
 		"offersDelivery": "Offers Delivery",
-		"noResults": "No Results"
+		"noResults": "No Results",
+		"cancel": "Cancel",
+		"description": "Description",
+		"placeName": "Place Name",
+		"city": "City",
+		"address": "Address"
 	},
 	"categories": {
 		"allCategories": "All Categories",
@@ -113,12 +119,15 @@
 	},
 	"users": {
 		"header": "Find fun places and restaurants near you.",
+		"getOffers": "Take advantage of discounts and offers from various places.",
 		"search": "Find the best doctors, hospitals, or any other medical facilities.",
 		"allOfThis": "The social review and rating platform, all in one place.",
 		"realReviews": "Real Reviews",
+		"realReviewsDescription": "Use your power of social reviews. Share your reviews.",
 		"userFriendly": "User Friendly",
+		"userFriendlyDescription": "Search & filter the results. Find the Service you are looking for easily.",
 		"support": "24/7 Support",
-		"loremIpsum": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+		"supportDescription": "If you have any questions, suggestions will be happy to contact us."
 	},
 	"contactUs": {
 		"contactUs": "Contact Us",

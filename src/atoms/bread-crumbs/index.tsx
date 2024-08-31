@@ -1,4 +1,4 @@
-import { Link } from "navigation";
+import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa6";
 
 const BreadCrumbs = ({

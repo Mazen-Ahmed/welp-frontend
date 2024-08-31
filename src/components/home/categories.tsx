@@ -2,7 +2,7 @@
 
 import { CategoriesItem } from "atoms";
 import { CategoryType } from "interfaces";
-import { Link } from "navigation";
+import Link from "next/link";
 import { useBusinessesFilterStore } from "store/businesses-filters";
 
 const Categories = ({

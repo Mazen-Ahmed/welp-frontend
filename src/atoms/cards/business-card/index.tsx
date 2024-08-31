@@ -1,8 +1,12 @@
+"use client";
+
 import { Chip } from "atoms";
 import { BusinessType } from "interfaces";
 import Image from "next/image";
+import { useState } from "react";
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import { SlLocationPin } from "react-icons/sl";
+import { ClipLoader } from "react-spinners";
 
 const BusinessCard = ({
 	item,
@@ -15,6 +19,8 @@ const BusinessCard = ({
 	withBackground?: boolean;
 	className?: string;
 }) => {
+	const [isLoading, setIsLoading] = useState(true);
+
 	const ratingHandler = (rate: number) => {
 		const stars = [];
 
@@ -43,13 +49,21 @@ const BusinessCard = ({
 			className={`${
 				withBackground && "bg-white shadow-md"
 			}  rounded-md w-full h-80 cursor-pointer overflow-hidden hover:scale-95 duration-200 ${className}`}>
+			{isLoading && (
+				<div className="w-full h-48  flex items-center justify-center  bg-gray-200">
+					<ClipLoader color="#FF0000" size={30} />
+				</div>
+			)}
 			<Image
 				loading="lazy"
 				alt={item.name}
 				src={item.cover_image || "/header.png"}
 				width={250}
 				height={150}
-				className={`object-cover w-full h-48 `}
+				className={`object-cover w-full h-48 ${
+					isLoading ? "opacity-0" : "opacity-100"
+				}`}
+				onLoad={() => setIsLoading(false)}
 			/>
 			<div className="flex justify-between items-center px-2 mt-2">
 				<h1 className="text-sm font-bold w-60 overflow-hidden text-ellipsis whitespace-nowrap text-animation">

@@ -2,7 +2,7 @@
 
 import { BusinessCard, CustomSwiper } from "atoms";
 import { BusinessType } from "interfaces";
-import { Link } from "navigation";
+import Link from "next/link";
 import React from "react";
 import { SwiperSlide } from "swiper/react";
 

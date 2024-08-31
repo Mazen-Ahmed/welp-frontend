@@ -4,10 +4,9 @@ import { getCookie, setCookie } from "cookies-next";
 // @ts-ignore
 import * as lookup from "coordinate_to_country";
 import { CityType } from "interfaces";
-import { useRouter, usePathname } from "navigation";
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { FaSearch } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";

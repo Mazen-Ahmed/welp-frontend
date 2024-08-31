@@ -14,6 +14,7 @@ const UsersDownload = async () => {
 			<UsersDownloadHeader
 				translation={{
 					header: usersT("header"),
+					getOffers: usersT("getOffers"),
 				}}
 			/>
 			<ImagesSection />
@@ -24,7 +25,9 @@ const UsersDownload = async () => {
 					realReviews: usersT("realReviews"),
 					userFriendly: usersT("userFriendly"),
 					support: usersT("support"),
-					loremIpsum: usersT("loremIpsum"),
+					realReviewsDescription: usersT("realReviewsDescription"),
+					userFriendlyDescription: usersT("userFriendlyDescription"),
+					supportDescription: usersT("supportDescription"),
 				}}
 			/>
 		</div>

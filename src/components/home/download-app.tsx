@@ -1,9 +1,9 @@
 "use client";
 
-import { Link } from "navigation";
 import { useLocale } from "next-intl";
 import { env } from "next-runtime-env";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const DownloadApp = ({ translation }: { translation: any }) => {
