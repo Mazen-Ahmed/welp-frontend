@@ -21,7 +21,6 @@ const getHeaders = async () => {
 	}
 	const languageCookie = locale;
 
-	// Construct headers without undefined values
 	const headers: Record<string, string> = {};
 	if (languageCookie) headers["Accept-Language"] = languageCookie;
 	if (locationCookie) headers["X-Country-Code"] = locationCookie;

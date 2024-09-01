@@ -42,7 +42,7 @@ const Cities = ({
 					slidesPerView={4}>
 					{cities?.length === 0 && <CitiesLoader />}
 
-					{cities.map((item: CityType, index: number) => (
+					{cities?.map((item: CityType, index: number) => (
 						<SwiperSlide className="py-2 mx-2 w-full" key={index}>
 							<div
 								className={`${
