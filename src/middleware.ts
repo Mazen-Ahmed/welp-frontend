@@ -6,6 +6,7 @@ const nextIntlMiddleware = createMiddleware({
 	localePrefix: "never",
 	locales,
 	defaultLocale: "ar",
+	localeDetection: false,
 });
 
 export default function (req: NextRequest): NextResponse {
@@ -13,5 +14,5 @@ export default function (req: NextRequest): NextResponse {
 }
 
 export const config = {
-	matcher: ["/", "/(ar|en)/:path*", "/((?!api|_next|_vercel|.*\\..*).*)"],
+	matcher: ["/", "/((?!api|_next|_vercel|.*\\..*).*)"],
 };

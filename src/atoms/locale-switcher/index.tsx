@@ -16,6 +16,7 @@ const LocalSwitcher = () => {
 	const handleLocaleChange = (newLocale: string) => {
 		if (locale !== newLocale) {
 			document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+			window.location.reload();
 			router.refresh();
 			setOpened(false);
 		}

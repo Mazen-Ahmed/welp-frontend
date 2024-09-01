@@ -1,24 +1,16 @@
-"server-only";
-
-import { locales } from "navigation";
+import { getCookie } from "cookies-next";
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-const messageImports: any = {
-	en: () => import("../messages/en.json"),
-	ar: () => import("../messages/ar.json"),
-};
+// Can be imported from a shared config
+const locales = ["en", "ar"];
 
-export function isValidLocale(locale: unknown) {
-	return locales.some((l) => l === locale);
-}
+export default getRequestConfig(async () => {
+	const locale = (getCookie("NEXT_LOCALE") as string) || "ar";
 
-export default getRequestConfig(async (params) => {
-	const baseLocale = new Intl.Locale(params.locale).baseName;
-	if (!isValidLocale(baseLocale)) notFound();
+	if (!locales.includes(locale)) notFound();
 
-	const messages = (await messageImports[baseLocale]()).default;
 	return {
-		messages,
+		messages: (await import(`../messages/${locale}.json`))?.default,
 	};
 });
