@@ -1,7 +1,8 @@
 import { Footer, Navbar } from "components";
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Roboto, Tajawal } from "next/font/google";
 import { headers } from "next/headers";
 
@@ -26,13 +27,15 @@ export async function generateMetadata({
 	};
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 	params,
 }: Readonly<{
 	children: React.ReactNode;
 	params: any;
 }>) {
+	const locale = await getLocale();
+
 	const headersList = headers();
 
 	const userAgent = headersList.get("user-agent");
@@ -45,21 +48,19 @@ export default function RootLayout({
 
 	const deviceType = isAndroid ? "android" : "ios";
 
-	unstable_setRequestLocale(params.locale);
+	unstable_setRequestLocale(locale);
 
-	const navbarT = useTranslations("navbar");
+	const navbarT = await getTranslations("navbar");
 
-	const businessT = useTranslations("business");
+	const businessT = await getTranslations("business");
 
-	const footerT = useTranslations("footer");
+	const footerT = await getTranslations("footer");
 
 	return (
 		<div
-			dir={params.locale === "ar" ? "rtl" : "ltr"}
-			lang={params.locale}
-			className={
-				params.locale === "ar" ? tajawal.className : roboto.className
-			}>
+			dir={locale === "ar" ? "rtl" : "ltr"}
+			lang={locale}
+			className={locale === "ar" ? tajawal.className : roboto.className}>
 			<Navbar
 				isMobile={isMobile}
 				deviceType={deviceType}

@@ -137,7 +137,7 @@ const Navbar = ({
 			<div
 				className={`flex items-center gap-2 md:gap-[27px] justify-between  px-5 md:px-10 h-14 lg:h-20`}>
 				{(!isMobile || (isMobile && !hasOpenAppButton)) && (
-					<div className="flex gap-[24px] items-center w-20 shrink-0">
+					<div className="flex gap-[24px] items-center w-40 shrink-0">
 						<Link href={"/"}>
 							<Image
 								src="/logo.svg"
@@ -147,7 +147,7 @@ const Navbar = ({
 								className="h-20 w-20 shrink-0 lg:w-52 lg:h-52"
 							/>
 						</Link>
-						{/* <LocalSwitcher /> */}
+						<LocalSwitcher />
 					</div>
 				)}
 				{isMobile && hasOpenAppButton && (
@@ -177,7 +177,7 @@ const Navbar = ({
 								/>
 							</Link>
 						</div>
-						{/* <LocalSwitcher /> */}
+						<LocalSwitcher />
 					</div>
 				)}
 				<SearchInput

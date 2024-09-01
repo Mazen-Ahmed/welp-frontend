@@ -6,6 +6,20 @@ import {
 import { getTranslations } from "next-intl/server";
 import React from "react";
 
+export async function generateMetadata({ params }: { params: any }) {
+	const t = await getTranslations({
+		locale: params.locale,
+		namespace: "metadata",
+	});
+
+	return {
+		title: t("download"),
+		openGraph: {
+			title: t("download"),
+			description: t("downloadDescription"),
+		},
+	};
+}
 const UsersDownload = async () => {
 	const usersT = await getTranslations("users");
 

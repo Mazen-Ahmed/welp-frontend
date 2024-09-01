@@ -14,7 +14,7 @@ const sharedHeaders = () => {
 			? JSON.parse(locationCookieString).country
 			: undefined;
 	} catch (error) {
-		locationCookie = undefined; // handle the case where JSON.parse fails
+		locationCookie = undefined;
 	}
 	const languageCookie = locale;
 
