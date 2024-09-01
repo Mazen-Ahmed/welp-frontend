@@ -48,9 +48,9 @@ const BusinessCard = ({
 		<div
 			className={`${
 				withBackground && "bg-white shadow-md"
-			}  rounded-md w-full h-80 cursor-pointer overflow-hidden hover:scale-95 duration-200 ${className}`}>
+			}  rounded-md w-full h-80 cursor-pointer relative overflow-hidden hover:scale-95 duration-200 ${className}`}>
 			{isLoading && (
-				<div className="w-full h-48  flex items-center justify-center  bg-gray-200">
+				<div className="w-full h-48  flex items-center justify-center absolute top-0 left-0 bg-gray-200">
 					<ClipLoader color="#FF0000" size={30} />
 				</div>
 			)}

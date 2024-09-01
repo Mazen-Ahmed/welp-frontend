@@ -28,6 +28,21 @@
 	}
 }
 
+.download-header {
+	height: 100vh;
+}
+
+@media screen and (max-width: 1000px) {
+	.download-header {
+		height: 40vh;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.download-header {
+		height: 50vh;
+	}
+}
 .map {
 	width: 100%;
 	height: 100%;
