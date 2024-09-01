@@ -23,7 +23,7 @@ const sharedHeaders = () => {
 	if (languageCookie) headers["Accept-Language"] = languageCookie;
 	if (locationCookie) headers["X-Country-Code"] = locationCookie;
 	headers["Content-Type"] = "application/json";
-	headers["App-ID"] = appId as string;
+	headers["App-ID"] = appId || "WEBSITE";
 
 	return headers;
 };

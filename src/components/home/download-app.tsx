@@ -9,8 +9,6 @@ import React from "react";
 const DownloadApp = ({ translation }: { translation: any }) => {
 	const locale = useLocale();
 
-	console.log(env("NEXT_PUBLIC_API_URL") || process.env.NEXT_PUBLIC_API_URL);
-
 	return (
 		<div className="flex px-10 md:px-20 flex-col md:flex-row bg-orange-200 min-h-96 gap-8  py-10 md:py-0  my-10  ">
 			<div className="flex flex-col  flex-1 text-center md:text-start  justify-center order-1">
