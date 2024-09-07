@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import { PublicEnvScript } from "next-runtime-env";
-import { headers } from "next/headers";
-// needed import
-import { notFound } from "next/navigation";
 import ClientProviders from "providers/client-providers";
-import "styles/globals.css";
 
 export async function generateMetadata({
 	params: { locale },
@@ -32,13 +28,6 @@ export default async function RootLayout({
 	children: React.ReactNode;
 	params: any;
 }>) {
-	const header = headers(); // new lines
-	const localeHeader = header.get("x-next-intl-locale"); // new lines
-	if (localeHeader === null) {
-		// new lines
-		notFound(); // new lines
-	} // new lines
-
 	const messages = await getMessages();
 
 	return (

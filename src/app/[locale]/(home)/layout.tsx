@@ -7,6 +7,7 @@ import {
 } from "next-intl/server";
 import { Roboto, Tajawal } from "next/font/google";
 import { headers } from "next/headers";
+import "styles/globals.css";
 
 const roboto = Roboto({ weight: ["700"], preload: false });
 const tajawal = Tajawal({ weight: ["700"], preload: false });

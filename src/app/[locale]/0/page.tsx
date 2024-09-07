@@ -26,7 +26,13 @@ const DownloadWelpApp = () => {
 
 	const deviceType = isAndroid ? "android" : "ios";
 	return (
-		<div className="min-h-[80vh] flex items-center justify-center">
+		<div
+			style={{
+				height: "80vh",
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
+			}}>
 			<DownloadWelpAppBody deviceType={deviceType} />
 		</div>
 	);
