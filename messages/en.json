@@ -10,7 +10,8 @@
 		"downloadDescription": "Download Welp app and search for high rated restaurants, doctors, businesses, or any other services around you. Social Reviews is a powerful community way for a real recommendation and feed back. Get coupons and discounts from your favorite place."
 	},
 	"downloadWelpApp": {
-		"redirect": "Redirecting you to the download page..."
+		"redirect": "Redirecting you to the download page...",
+		"didNotRedirect": "If there was a problem and you were not redirected to the download page click here"
 	},
 	"breadCrumbs": {
 		"home": "Home",
