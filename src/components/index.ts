@@ -15,6 +15,7 @@ import ResponsiveBusinessesFilters from "./businesses-list/responsive-filters";
 import CategoriesList from "./categories/categories-list";
 import ContactInfo from "./contact-us/body";
 import ContactHeader from "./contact-us/header";
+import DownloadWelpAppBody from "./download-welp-app/body";
 import DownloadBusinessApp from "./for-businesses/download-app";
 import ForBusinessesHeader from "./for-businesses/header";
 import BusinessPageInfo from "./for-businesses/info";
@@ -47,6 +48,7 @@ const DownloadApp = dynamic(() => import("./home/download-app"), {
 
 export {
 	AddPlacesForm,
+	DownloadWelpAppBody,
 	ContactInfo,
 	ContactHeader,
 	PrivacyBody,

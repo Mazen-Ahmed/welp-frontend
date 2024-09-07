@@ -43,11 +43,11 @@ const Cities = ({
 					{cities?.length === 0 && <CitiesLoader />}
 
 					{cities?.map((item: CityType, index: number) => (
-						<SwiperSlide className="py-2 mx-2 w-full" key={index}>
+						<SwiperSlide className=" w-full" key={index}>
 							<div
 								className={`${
 									index % 2 !== 0 ? "h-96" : "h-72"
-								} w-full rounded-3xl border overflow-hidden border-yellow-500 border-solid text-xl font-semibold text-white
+								} w-full rounded-3xl border overflow-hidden border-yellow-500 border-solid text-xl font-semibold text-white 
                                 `}
 								style={{
 									background: ` url(${item.image})`,
@@ -56,7 +56,7 @@ const Cities = ({
 									backgroundPosition: "center",
 								}}>
 								<div
-									className="w-full h-full  flex items-start justify-center pt-5 select-none"
+									className="w-full h-full  flex items-start justify-center pt-5 select-none text-center"
 									style={{
 										background:
 											"linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2))",

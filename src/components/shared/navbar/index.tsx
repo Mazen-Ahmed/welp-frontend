@@ -51,6 +51,7 @@ const Navbar = ({
 		"/biz",
 		"/terms",
 		"/privacy",
+		"/0",
 	];
 
 	const linksWithOpenAppButton = ["menu"];
