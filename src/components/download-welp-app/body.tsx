@@ -10,17 +10,17 @@ const DownloadWelpAppBody = ({ deviceType }: { deviceType: string }) => {
 	const downloadWelpAppT = useTranslations("downloadWelpApp");
 
 	useEffect(() => {
-		// if (!wasRedirected) {
-		// 	if (deviceType === "android") {
-		// 		window.location.href =
-		// 			"https://play.google.com/store/apps/details?id=com.welp.welp";
-		// 		setWasRedirected(true);
-		// 	} else {
-		// 		window.location.href =
-		// 			"https://apps.apple.com/us/app/welp-rating-social-reviews/id6478454000";
-		// 		setWasRedirected(true);
-		// 	}
-		// }
+		if (!wasRedirected) {
+			if (deviceType === "android") {
+				window.location.href =
+					"https://play.google.com/store/apps/details?id=com.welp.welp";
+				setWasRedirected(true);
+			} else {
+				window.location.href =
+					"https://apps.apple.com/us/app/welp-rating-social-reviews/id6478454000";
+				setWasRedirected(true);
+			}
+		}
 	}, [deviceType, wasRedirected]);
 
 	return (
