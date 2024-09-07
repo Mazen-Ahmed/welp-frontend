@@ -1,7 +1,6 @@
 import { DownloadWelpAppBody } from "components";
 import { getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
-import React from "react";
 
 export async function generateMetadata({ params }: { params: any }) {
 	const t = await getTranslations({
@@ -22,10 +21,6 @@ const DownloadWelpApp = () => {
 	const headersList = headers();
 
 	const userAgent = headersList.get("user-agent");
-
-	const isMobile = new RegExp("Mobile|Android|iP(ad|od|hone)").test(
-		userAgent || ""
-	);
 
 	const isAndroid = /Android/i.test(userAgent || "");
 

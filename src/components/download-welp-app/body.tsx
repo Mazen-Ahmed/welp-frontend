@@ -23,19 +23,17 @@ const DownloadWelpAppBody = ({ deviceType }: { deviceType: string }) => {
 		}
 	}, [deviceType, wasRedirected]);
 
-	console.log(wasRedirected);
-
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<Image src="/logo.svg" width={150} height={150} alt="logo" />
 			{!wasRedirected && downloadWelpAppT("redirect")}
 			{wasRedirected && (
 				<div>
-					<p
-						className="underline "
+					<button
+						className="underline text-center px-1 bg-none "
 						onClick={() => setWasRedirected(false)}>
 						{downloadWelpAppT("didNotRedirect")}
-					</p>
+					</button>
 				</div>
 			)}
 		</div>

@@ -1,8 +1,10 @@
 import { Footer, Navbar } from "components";
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
-import { getLocale, getTranslations } from "next-intl/server";
+import {
+	getLocale,
+	getTranslations,
+	unstable_setRequestLocale,
+} from "next-intl/server";
 import { Roboto, Tajawal } from "next/font/google";
 import { headers } from "next/headers";
 
