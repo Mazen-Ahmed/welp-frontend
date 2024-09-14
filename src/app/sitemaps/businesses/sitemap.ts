@@ -1,12 +1,10 @@
-"use server";
-
 import { MetadataRoute } from "next";
 import { getBusinessesSlugs } from "services/businesses";
 
 export async function generateSitemaps() {
-	const products = await getBusinessesSlugs(1);
+	const businesses = await getBusinessesSlugs(1);
 
-	const sitemapsNeeded = Math.ceil(products.count / 1000);
+	const sitemapsNeeded = Math.ceil(businesses.count / 1000);
 
 	const sitemaps = Array.from({ length: sitemapsNeeded }, (_, index) => ({
 		id: index + 1,
@@ -23,7 +21,7 @@ export default async function sitemap({
 	const businesses = await getBusinessesSlugs(id);
 
 	return businesses.results.flatMap((business: any) => {
-		const commonEntries = [
+		const commonEntries: any = [
 			{
 				url: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/biz/${business.slug}`,
 				lastModified: new Date().toISOString(),
@@ -36,7 +34,7 @@ export default async function sitemap({
 			},
 		];
 
-		const restaurantEntries =
+		const restaurantEntries: any =
 			business.business_type === "RESTAURANT"
 				? [
 						{
