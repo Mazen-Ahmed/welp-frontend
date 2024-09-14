@@ -129,16 +129,6 @@ export const getBusinessProducts = async (
 	}
 };
 
-export const getBusinessesSlugs = async (page: any) => {
-	try {
-		const response = await server.get(`businesses/slugs?page=${page}`);
-
-		return response;
-	} catch (error: any) {
-		throw new error(error.message);
-	}
-};
-
 export const businessRequest = async (
 	name: string,
 	description: string,

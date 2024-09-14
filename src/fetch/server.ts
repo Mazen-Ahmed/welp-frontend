@@ -3,11 +3,12 @@
 import { apiBaseURL, appId } from "config";
 import { getLocale } from "next-intl/server";
 import { cookies } from "next/headers";
-import { toast } from "react-toastify";
 
 const getHeaders = async () => {
+	// Fetch the locale asynchronously
 	const locale = await getLocale();
 
+	// Get cookies within the request context
 	const locationCookieString = cookies().get("location")?.value;
 
 	let locationCookie;
@@ -19,6 +20,7 @@ const getHeaders = async () => {
 	} catch (error) {
 		locationCookie = undefined; // handle the case where JSON.parse fails
 	}
+
 	const languageCookie = locale;
 
 	const headers: Record<string, string> = {};
@@ -31,21 +33,23 @@ const getHeaders = async () => {
 };
 
 export const post = async (path: string, formData: FormData) => {
+	const headers = await getHeaders();
 	const res = await fetch(`${apiBaseURL}/${path}`, {
 		method: "POST",
-		headers: await getHeaders(),
+		headers,
 		body: JSON.stringify(Object.fromEntries(formData)),
 	});
 	const parsedRes = await res.json();
 	if (!res.ok) {
-		return toast.error(parsedRes);
+		throw new Error(parsedRes);
 	}
 	return { error: "" };
 };
 
 export const get = async (path: string) => {
+	const headers = await getHeaders();
 	const res = await fetch(`${apiBaseURL}/${path}`, {
-		headers: await getHeaders(),
+		headers,
 	});
 
 	// Check response status code

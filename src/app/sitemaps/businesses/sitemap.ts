@@ -1,4 +1,26 @@
-import { getBusinessesSlugs } from "services/businesses";
+"use server";
+
+import { apiBaseURL } from "config";
+
+export const getBusinessesSlugs = async (page: any) => {
+	try {
+		const response = await fetch(
+			`${apiBaseURL}/businesses/slugs?page=${page}`
+		);
+
+		const data = await response.json();
+
+		if (!response.ok) {
+			throw new Error(
+				`API request failed with status ${response.status}`
+			);
+		}
+
+		return data;
+	} catch (error: any) {
+		throw new Error(error.message);
+	}
+};
 
 export async function generateSitemaps(): Promise<Array<any>> {
 	const businesses = await getBusinessesSlugs(1);
