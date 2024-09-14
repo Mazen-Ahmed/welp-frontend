@@ -1,4 +1,3 @@
-import { MetadataRoute } from "next";
 import { getBusinessesSlugs } from "services/businesses";
 
 const staticPaths = [
@@ -15,7 +14,7 @@ const staticPaths = [
 
 const host = process.env.NEXT_PUBLIC_FRONTEND_URL;
 
-export async function generateStaticParams() {
+export async function generateNumberOfSitemapsNeeded(): Promise<Array<any>> {
 	const businessesResponse = await getBusinessesSlugs(1);
 	const businessCount = businessesResponse.count || 0;
 
@@ -30,7 +29,7 @@ function getUrl(pathname: string) {
 	return `${host}${pathname === "/" ? "" : pathname}`;
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default async function SiteMap(): Promise<any> {
 	const staticEntries = staticPaths.map((pathname) => ({
 		loc: getUrl(pathname),
 		lastmod: new Date().toISOString(),
@@ -42,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		},
 	}));
 
-	const sitemaps = await generateStaticParams();
+	const sitemaps = await generateNumberOfSitemapsNeeded();
 	const dynamicSitemapEntries = sitemaps.map((sitemap) => ({
 		loc: `${host}/sitemaps/businesses/sitemap/${sitemap.id}.xml`,
 		lastmod: new Date().toISOString(),

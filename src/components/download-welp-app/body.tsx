@@ -39,7 +39,7 @@ const DownloadWelpAppBody = ({ deviceType }: { deviceType: string }) => {
 						style={{
 							textDecoration: "underline",
 							textAlign: "center",
-							paddingInline: 1,
+							paddingInline: 5,
 							background: "none",
 						}}
 						onClick={() => setWasRedirected(false)}>

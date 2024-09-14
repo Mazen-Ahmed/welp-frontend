@@ -131,14 +131,11 @@ export const getBusinessProducts = async (
 
 export const getBusinessesSlugs = async (page: any) => {
 	try {
-		const response = await client.get(
-			`businesses/slugs?page=${page}`,
-			false
-		);
+		const response = await server.get(`businesses/slugs?page=${page}`);
 
 		return response;
 	} catch (error: any) {
-		toast.error(error.message);
+		throw new error(error.message);
 	}
 };
 
