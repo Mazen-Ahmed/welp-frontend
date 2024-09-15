@@ -5,7 +5,7 @@ import { apiBaseURL } from "config";
 export const getBusinessesSlugs = async (page: any) => {
 	try {
 		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/businesses/slugs?page=${page}`
+			`${apiBaseURL}/businesses/slugs?page=${page}`
 		);
 
 		const data = await response.json();
