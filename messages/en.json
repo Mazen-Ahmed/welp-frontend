@@ -1,7 +1,10 @@
 {
 	"metadata": {
 		"welp": "Welp",
-		"home": "Home",
+		"home": {
+			"title": "Home",
+			"description": "Discover trusted reviews and ratings of doctors, restaurants, hospitals, parks, schools and many more businesses on our platform. Find the best services and places in your area, shared by real users to help you make informed decisions"
+		},
 		"forBusinesses": "For Businesses",
 		"terms": "Terms of Use",
 		"privacy": "Privacy Policy",

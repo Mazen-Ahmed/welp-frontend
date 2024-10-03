@@ -16,10 +16,11 @@ export async function metadata({
 	});
 
 	return {
-		title: t("home"),
+		title: t("home.title"),
+		description: t("home.description"),
 		openGraph: {
-			title: t("home"),
-			description: t("home"),
+			title: t("home.title"),
+			description: t("home.description"),
 		},
 	};
 }

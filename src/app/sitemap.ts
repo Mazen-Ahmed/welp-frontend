@@ -1,8 +1,6 @@
 "use server";
 
 import { apiBaseURL, appId } from "config";
-import { getLocale } from "next-intl/server";
-import { cookies } from "next/headers";
 
 export const getBusinessesSlugs = async (page: any) => {
 	try {
