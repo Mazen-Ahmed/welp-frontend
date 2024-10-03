@@ -5,7 +5,15 @@ import { apiBaseURL } from "config";
 export const getBusinessesSlugs = async (page: any) => {
 	try {
 		const response = await fetch(
-			`${apiBaseURL}/businesses/slugs?page=${page}`
+			`${apiBaseURL}/businesses/slugs?page=${page}`,
+			{
+				headers: {
+					"Content-Type": "application/json",
+					"App-ID": "WEBSITE",
+					"X-Country-Code": "EG",
+					"Accept-Language": "AR",
+				},
+			}
 		);
 
 		const data = await response.json();

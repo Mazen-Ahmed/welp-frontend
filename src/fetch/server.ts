@@ -4,67 +4,141 @@ import { apiBaseURL, appId } from "config";
 import { getLocale } from "next-intl/server";
 import { cookies } from "next/headers";
 
-const getHeaders = async () => {
-	// Fetch the locale asynchronously
-	const locale = await getLocale();
+const refreshAccessToken = async () => {
+	const user = cookies().get("user")?.value;
 
-	// Get cookies within the request context
+	const res = await fetch(`${apiBaseURL}/users/refresh-token`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({ user }),
+	});
+
+	if (!res.ok) {
+		throw new Error("Failed to refresh token");
+	}
+
+	const { jwt } = await res.json();
+
+	return jwt;
+};
+
+const getHeaders = async (withAuth: boolean) => {
+	const locale = await getLocale();
 	const locationCookieString = cookies().get("location")?.value;
 
 	let locationCookie;
-
 	try {
 		locationCookie = locationCookieString
 			? JSON.parse(locationCookieString).country
 			: undefined;
 	} catch (error) {
-		locationCookie = undefined; // handle the case where JSON.parse fails
+		locationCookie = undefined;
 	}
 
-	const languageCookie = locale;
-
 	const headers: Record<string, string> = {};
-	if (languageCookie) headers["Accept-Language"] = languageCookie;
+	if (locale) headers["Accept-Language"] = locale;
 	if (locationCookie) headers["X-Country-Code"] = locationCookie;
 	headers["Content-Type"] = "application/json";
 	headers["App-ID"] = appId || "WEBSITE";
 
+	if (withAuth) {
+		const tokenCookie = cookies().get("token")?.value;
+		if (tokenCookie) headers["Authorization"] = `Bearer ${tokenCookie}`;
+	}
+
 	return headers;
 };
 
-export const post = async (path: string, formData: FormData) => {
-	const headers = await getHeaders();
-	const res = await fetch(`${apiBaseURL}/${path}`, {
-		method: "POST",
-		headers,
-		body: JSON.stringify(Object.fromEntries(formData)),
-	});
-	const parsedRes = await res.json();
-	if (!res.ok) {
-		throw new Error(parsedRes);
+const handleRequest = async (
+	method: string,
+	path: string,
+	data?: any,
+	withAuth = false,
+	withFormData = false
+) => {
+	let headers = await getHeaders(withAuth);
+
+	if (!withFormData && data) {
+		headers["Content-Type"] = "application/json";
 	}
-	return { error: "" };
+
+	let body = withFormData ? data : JSON.stringify(data);
+
+	let res = await fetch(`${apiBaseURL}/${path}`, {
+		method,
+		headers,
+		body,
+	});
+
+	if (res.status === 401 && withAuth) {
+		try {
+			const { token, error } = await refreshAccessToken();
+
+			if (error) {
+				return console.log("Authentication error, please login again");
+			}
+
+			headers["Authorization"] = `Bearer ${token}`;
+
+			// Retry the request with the new token
+			res = await fetch(`${apiBaseURL}/${path}`, {
+				method,
+				headers,
+				body,
+			});
+		} catch (error) {
+			return console.log("Authentication error, please login again");
+		}
+	}
+
+	let parsedRes;
+	try {
+		parsedRes = await res.json();
+	} catch (error) {
+		return console.log("Failed to parse response");
+	}
+
+	if (!res.ok) {
+		throw new Error(parsedRes?.message || res.statusText);
+	}
+
+	return parsedRes;
 };
 
-export const get = async (path: string) => {
-	const headers = await getHeaders();
-	const res = await fetch(`${apiBaseURL}/${path}`, {
-		headers,
-	});
+// Exported functions
+export const post = async (
+	path: string,
+	data: any,
+	withAuth = false,
+	withFormData = false
+) => {
+	return handleRequest("POST", path, data, withAuth, withFormData);
+};
 
-	// Check response status code
-	if (!res.ok) {
-		throw new Error(`API request failed with status ${res.status}`);
-	}
+export const patch = async (
+	path: string,
+	data: any,
+	withAuth = false,
+	withFormData = false
+) => {
+	return handleRequest("PATCH", path, data, withAuth, withFormData);
+};
 
-	// Check response content type before parsing as JSON
-	if (res.headers.get("content-type")?.toLowerCase() !== "application/json") {
-		throw new Error(
-			"Unexpected response content type. Expected application/json."
-		);
-	}
+export const put = async (
+	path: string,
+	data: any,
+	withAuth = false,
+	withFormData = false
+) => {
+	return handleRequest("PUT", path, data, withAuth, withFormData);
+};
 
-	const data = await res.json();
+export const del = async (path: string, withAuth = false) => {
+	return handleRequest("DELETE", path, undefined, withAuth);
+};
 
-	return data;
+export const get = async (path: string, withAuth = false) => {
+	return handleRequest("GET", path, undefined, withAuth);
 };
