@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const OpenApp = ({ deviceType }: { deviceType: string }) => {
 	const [isOpening, setIsOpening] = useState(false);
+
+	const pathname = usePathname();
 
 	const handleOpenApp = () => {
 		setIsOpening(true);

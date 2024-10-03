@@ -56,7 +56,7 @@ rounded-[15px] justify-center absolute top-[8px] start-[8px] bg-gray-200">
 				className={` object-fill self-center h-[114px] w-[114px] rounded-[15px] ${
 					isLoading ? "opacity-0" : "opacity-100"
 				}`}
-				src={item.cover_image || "/header.png"}
+				src={item.cover_image || "/header.webp"}
 				width={102}
 				height={90}
 				style={{ borderRadius: 5 }}

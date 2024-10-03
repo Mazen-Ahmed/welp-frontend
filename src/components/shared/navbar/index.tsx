@@ -49,16 +49,22 @@ const Navbar = ({
 		"/categories",
 		"/businesses",
 		"/biz",
+		"/biz/user/:path",
 		"/terms",
 		"/privacy",
-		"/0",
+		"/download/1",
 	];
 
 	const linksWithOpenAppButton = ["menu"];
 
-	const withWhiteBackground = !!linksWithWhiteBackground.find(
-		(link) => pathname === link || pathname.includes("menu")
+	const regexPatterns = linksWithWhiteBackground.map(
+		(link) => link.replace(/:path/, "([^/]+)") // Replace dynamic ":path" with a regex pattern
 	);
+
+	const withWhiteBackground = !!regexPatterns.find((pattern) => {
+		const regex = new RegExp(`^${pattern}$`);
+		return regex.test(pathname) || pathname.includes("menu");
+	});
 
 	const hasOpenAppButton = !!linksWithOpenAppButton.find((link) =>
 		pathname.includes(link)
@@ -109,8 +115,8 @@ const Navbar = ({
 
 	const handleOpenApp = () => {
 		setIsOpeningApp(true);
-
-		window.location.href = "welp://home";
+		window.location.href =
+			pathname === "/" ? "welp://home" : `welp://${pathname}`;
 
 		setTimeout(() => {
 			if (!document.hidden) {

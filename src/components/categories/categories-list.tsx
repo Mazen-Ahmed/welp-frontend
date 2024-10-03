@@ -6,11 +6,9 @@ import { useState } from "react";
 import { useCategoriesStore } from "store/categories";
 
 const CategoriesList = ({
-	locale,
 	translation,
 	categories,
 }: {
-	locale: string;
 	translation: any;
 	categories: CategoryType[];
 }) => {
@@ -24,7 +22,6 @@ const CategoriesList = ({
 				<CategoriesCard
 					opened={opened}
 					setOpened={setOpened}
-					locale={locale}
 					key={item.id}
 					item={item}
 				/>

@@ -57,7 +57,7 @@ const BusinessCard = ({
 			<Image
 				loading="lazy"
 				alt={item.name}
-				src={item.cover_image || "/header.png"}
+				src={item.cover_image || "/header.webp"}
 				width={250}
 				height={150}
 				className={`object-cover w-full h-48 ${

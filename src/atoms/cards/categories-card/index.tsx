@@ -2,20 +2,21 @@
 
 import { CategoryItemDropdown } from "atoms";
 import { CategoryType } from "interfaces";
+import { useLocale } from "next-intl";
 import Image from "next/image";
-import { FaChevronRight } from "react-icons/fa6";
+import { FaChevronLeft } from "react-icons/fa6";
 
 const CategoriesCard = ({
 	item,
-	locale,
 	opened,
 	setOpened,
 }: {
 	item: CategoryType;
-	locale: string;
 	opened: number | null;
 	setOpened: (state: number | null) => void;
 }) => {
+	const locale = useLocale();
+
 	return (
 		<div className="relative select-none">
 			<div
@@ -35,9 +36,9 @@ const CategoriesCard = ({
 					<h2>{item.name}</h2>
 				</div>
 				<div>
-					<FaChevronRight
+					<FaChevronLeft
 						className={`w-4 h-4 duration-150 ${
-							locale === "ar" && "rotate-180"
+							locale === "en" && "rotate-180"
 						} ${item.id === opened && "rotate-90"}`}
 					/>
 				</div>

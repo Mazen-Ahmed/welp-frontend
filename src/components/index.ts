@@ -31,6 +31,7 @@ import BusinessHeader from "./menu/header";
 import Menu from "./menu/menu";
 import OpenApp from "./menu/open-app";
 import ProductsList from "./menu/products-list";
+import OpenAppBody from "./open-app-body";
 import PrivacyBody from "./privacy/body";
 import PrivacyHeader from "./privacy/header";
 import Footer from "./shared/footer";
@@ -48,6 +49,7 @@ const DownloadApp = dynamic(() => import("./home/download-app"), {
 
 export {
 	AddPlacesForm,
+	OpenAppBody,
 	DownloadWelpAppBody,
 	ContactInfo,
 	ContactHeader,

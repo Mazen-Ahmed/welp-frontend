@@ -9,7 +9,7 @@
 }
 
 .header {
-	background: url("/header.png");
+	background: url("/header.webp");
 	background-size: cover;
 	background-attachment: scroll;
 	background-repeat: no-repeat;

@@ -16,7 +16,7 @@ const NotFound = () => {
 				background: "#fff",
 				fontFamily: " 'Poppins', sans-serif",
 			}}>
-			<Image src="/404.jpg" width={400} height={400} alt="logo" />
+			<Image src="/404.webp" width={400} height={400} alt="logo" />
 
 			<p style={{ fontSize: 30 }}> 404 | Not Found </p>
 

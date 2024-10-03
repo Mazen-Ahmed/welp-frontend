@@ -25,7 +25,6 @@ const Categories: React.FC<any> = async ({ params }: { params: any }) => {
 					noCategories: categoriesT("noCategories"),
 				}}
 				categories={categories}
-				locale={params.locale}
 			/>
 		</div>
 	);

@@ -59,6 +59,8 @@ export default async function RootLayout({
 
 	const footerT = await getTranslations("footer");
 
+	const validationT = await getTranslations("validation");
+
 	return (
 		<div
 			dir={locale === "ar" ? "rtl" : "ltr"}
@@ -81,6 +83,7 @@ export default async function RootLayout({
 					description: businessT("description"),
 					sendRequest: businessT("sendRequest"),
 					cancel: businessT("cancel"),
+					searchErrorMessage: validationT("minSearchLength"),
 				}}
 			/>
 			{children}

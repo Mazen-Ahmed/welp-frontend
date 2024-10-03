@@ -142,5 +142,10 @@
 		"email": "Email",
 		"callUs": "Call Us",
 		"followUs": "Follow Us"
+	},
+	"validation": {
+		"required": "Required",
+		"minLength": "This field length cannot be less than {{minLength}} ",
+		"minSearchLength": "Please enter at least 2 letters for the search."
 	}
 }

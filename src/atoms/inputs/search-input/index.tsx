@@ -76,11 +76,20 @@ const SearchInput = ({
 		(state) => state.setSearchKeyword
 	);
 
+	const setSearch = useBusinessesFilterStore((state) => state.setSearch);
+
 	const setNearest = useBusinessesFilterStore((state) => state.setNearest);
 
 	const setCity = useBusinessesFilterStore((state) => state.setCity);
 
 	const searchHandler = () => {
+		if (!keyword || keyword.trim().length < 2) {
+			toast.info(translation.searchErrorMessage);
+			return;
+		}
+
+		setSearch(true);
+
 		let hasSearchParam = false;
 		let hasCityParam = false;
 
@@ -191,6 +200,15 @@ const SearchInput = ({
 		toast.info("Please enable location permission.");
 	}
 
+	useEffect(() => {
+		if (pathname !== "/biz") {
+			setCity(null);
+			setSearchKeyword(null);
+			setCityValue(null);
+			setKeyword(null);
+		}
+	}, [pathname]);
+
 	if (!locale) return <div className="h-10 md:h-12 w-full"></div>;
 	return (
 		<div
@@ -202,18 +220,12 @@ const SearchInput = ({
 					placeholder={translation.ex}
 					className="text-gray-800 text-xs md:text-sm h-full w-full outline-none placeholder:text-xs"
 					onChange={(e) => {
-						if (e.target.value) {
-							setKeyword(e.target.value);
-						} else {
-							setKeyword(null);
-							setSearchKeyword(null);
-							removeQueryParam("search", pathname);
-						}
+						setKeyword(e.target.value || null);
 					}}
 					onKeyDown={(e) => {
 						if (e.key === "Enter") searchHandler();
 					}}
-					defaultValue={searchParams?.get("search") as string}
+					value={keyword || ""}
 				/>
 			</div>
 			<div className="flex relative items-center w-56 h-full gap-2 justify-start">
@@ -284,8 +296,6 @@ const SearchInput = ({
 										setCityValue(city.name);
 										setShowCities(false);
 										setCity(city.id);
-										if (pathname === "/biz")
-											searchHandler();
 									}}
 									key={city.id}
 									className="font-semiBold my-3 w-full text-sm cursor-pointer bg-none text-start">

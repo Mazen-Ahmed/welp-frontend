@@ -43,9 +43,15 @@ const useBusinessesList = (currentLocation: string) => {
 		(state) => state.categoriesToFilterWith
 	);
 
+	const setSearch = useBusinessesFilterStore((state) => state.setSearch);
+
+	const search = useBusinessesFilterStore((state) => state.search);
+
 	const setIsLoading = useBusinessesFilterStore(
 		(state) => state.setIsLoading
 	);
+
+	console.log(search);
 
 	const searchKeyword = useBusinessesFilterStore(
 		(state) => state.searchKeyword
@@ -84,6 +90,8 @@ const useBusinessesList = (currentLocation: string) => {
 			setBusinesses(data.results);
 
 			setCount(data.count);
+
+			setSearch(false);
 		} catch (error: any) {
 			toast.error(error);
 		} finally {
@@ -114,7 +122,7 @@ const useBusinessesList = (currentLocation: string) => {
 	]);
 
 	useEffect(() => {
-		if (page === 1) {
+		if (page === 1 && search) {
 			fetchBusinessesHandler();
 			window.scrollTo({ top: 0, behavior: "smooth" });
 		}
@@ -124,8 +132,7 @@ const useBusinessesList = (currentLocation: string) => {
 		isDeliveryAvailable,
 		categoriesToFilterWith,
 		page,
-		searchKeyword,
-		finalizedCity,
+		search,
 		nearest,
 	]);
 
@@ -135,6 +142,7 @@ const useBusinessesList = (currentLocation: string) => {
 		count,
 		loading,
 		page,
+		setSearch,
 	};
 };
 

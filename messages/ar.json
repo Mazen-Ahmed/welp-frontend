@@ -148,6 +148,7 @@
 	},
 	"validation": {
 		"required": "مطلوب",
-		"minLength": "يجب ان لا يقل هذا الحقل عن {minLength} احرف"
+		"minLength": "يجب ان لا يقل هذا الحقل عن {minLength} احرف",
+		"minSearchLength": "يجب ان لا يقل طول كلمة البحث عن حرفين"
 	}
 }
