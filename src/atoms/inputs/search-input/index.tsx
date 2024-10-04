@@ -1,8 +1,6 @@
 "use client";
 
 import { getCookie, setCookie } from "cookies-next";
-// @ts-ignore
-import * as lookup from "coordinate_to_country";
 import { CityType } from "interfaces";
 import { useLocale } from "next-intl";
 import Image from "next/image";
@@ -11,6 +9,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { FaSearch } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import { toast } from "react-toastify";
+import { getCurrentUserLocation } from "services";
 import { useBusinessesFilterStore } from "store/businesses-filters";
 
 const SearchInput = ({
@@ -179,21 +178,7 @@ const SearchInput = ({
 	function successFunction(position: any) {
 		const { coords } = position;
 
-		const country = lookup(coords.longitude, coords.latitude, true);
-
-		const expiryDate = new Date();
-		expiryDate.setDate(expiryDate.getDate() + 3);
-		setCookie(
-			"location",
-			{
-				country: country[0],
-				long: coords.longitude,
-				lat: coords.latitude,
-			},
-			{ expires: expiryDate }
-		);
-
-		window.location.reload();
+		getCurrentUserLocation(coords);
 	}
 
 	function errorFunction() {

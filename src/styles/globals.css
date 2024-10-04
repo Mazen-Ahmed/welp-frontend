@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 700px) {
 	.header {
-		background: url("/header-mobile.png");
+		background: url("/header-mobile.webp");
 		background-size: 100% 100%;
 		background-attachment: scroll;
 		background-repeat: no-repeat;

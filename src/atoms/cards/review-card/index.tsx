@@ -27,7 +27,7 @@ const ReviewCard = ({ item }: { item: ReviewType }) => {
 			<div className="flex items-start gap-3 md:gap-5 text-gray-400">
 				<div>
 					<Image
-						src={item.reviewer.avatar || "/default-user.jpg"}
+						src={item.reviewer.avatar || "/default-user.webp"}
 						width={50}
 						height={50}
 						alt="user"

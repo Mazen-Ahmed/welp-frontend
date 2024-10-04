@@ -51,8 +51,6 @@ const useBusinessesList = (currentLocation: string) => {
 		(state) => state.setIsLoading
 	);
 
-	console.log(search);
-
 	const searchKeyword = useBusinessesFilterStore(
 		(state) => state.searchKeyword
 	);

@@ -15,12 +15,12 @@ const BusinessPageInfo = ({ translation }: { translation: any }) => {
 				</ul>
 				<div className="grid grid-cols-1 my-[50px] md:grid-cols-2 lg:grid-cols-3 px-5 md:px-20 gap-5">
 					<ForBusinessCard
-						image="/for-businesses-1.png"
+						image="/for-businesses-1.webp"
 						title={translation.benefits}
 						description={translation.benefitsDescription}
 					/>
 					<ForBusinessCard
-						image="/for-businesses-2.png"
+						image="/for-businesses-2.webp"
 						title={translation.reviews}
 						description={translation.reviewsDescription}
 					/>

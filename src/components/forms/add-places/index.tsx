@@ -58,8 +58,6 @@ const AddPlacesForm = ({
 		addBusinessRequestAction(name, description, location, city, image);
 	};
 
-	console.log(locale);
-
 	return (
 		<>
 			{success ? (

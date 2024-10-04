@@ -6,11 +6,11 @@ const TermsBody = () => {
 		<div className="grid grid-cols-1 md:grid-cols-2">
 			<div className="h-[30vh]  md:h-[70vh]">
 				<Image
-					src="/terms-body.svg"
+					src="/terms-body.webp"
 					width={200}
 					height={200}
 					alt="business"
-					className=" h-full w-full"
+					className=" h-full w-full object-contain"
 				/>
 			</div>
 			<div className="flex flex-col items-start">

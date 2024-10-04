@@ -48,7 +48,7 @@ const DownloadApp = ({ translation }: { translation: any }) => {
 			</div>
 			<div className=" flex-1 flex justify-center  align-center relative overflow-hidden order-2 ">
 				<Image
-					src="/iPhone.svg"
+					src="/iPhone.webp"
 					width={160}
 					height={150}
 					alt="iPhone"
@@ -57,7 +57,7 @@ const DownloadApp = ({ translation }: { translation: any }) => {
 					} -bottom-40`}
 				/>
 				<Image
-					src="/iPhone.svg"
+					src="/iPhone.webp"
 					width={160}
 					height={150}
 					alt="iphone"

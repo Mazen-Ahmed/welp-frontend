@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const ContactInfo = ({ translation }: { translation: any }) => {
@@ -7,7 +7,7 @@ const ContactInfo = ({ translation }: { translation: any }) => {
 		<div className="my-10 grid gap-5 grid-cols-1 md:grid-cols-2 py-10 px-5 md:px-10 bg-gray-businesses">
 			<div className="flex items-center justify-center">
 				<Image
-					src={"/contactBody.png"}
+					src={"/contact-body.webp"}
 					alt="contact info"
 					width={400}
 					height={600}
