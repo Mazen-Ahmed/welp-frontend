@@ -10,12 +10,10 @@ import {
 import { getCategoriesList, getCategory } from "./catrgories";
 import { getCitiesList } from "./cities";
 import { getBusinessReviews } from "./reviews";
-import { getCurrentUserLocation } from "./user";
 
 export {
 	getBusiness,
 	getBusinessProductTypes,
-	getCurrentUserLocation,
 	getBusinessReviews,
 	getFeaturedBusinesses,
 	businessRequest,

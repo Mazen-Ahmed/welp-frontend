@@ -6,7 +6,6 @@ import { getCookie, setCookie } from "cookies-next";
 // @ts-ignore
 import * as lookup from "coordinate_to_country";
 import { useCitiesList } from "hooks";
-import { useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,8 +35,6 @@ const Navbar = ({
 	};
 
 	const [searchOpened, setSearchOpened] = useState<boolean>(false);
-
-	const locale = useLocale();
 
 	const pathname = usePathname();
 
@@ -188,6 +185,7 @@ const Navbar = ({
 					</div>
 				)}
 				<SearchInput
+					lookup={lookup}
 					data={data}
 					loading={loading}
 					className="hidden lg:flex"
@@ -350,6 +348,7 @@ const Navbar = ({
 						: "overflow-hidden max-h-0"
 				}    md:px-10 lg:px-20`}>
 				<SearchInput
+					lookup={lookup}
 					data={data}
 					loading={loading}
 					className="flex lg:hidden"

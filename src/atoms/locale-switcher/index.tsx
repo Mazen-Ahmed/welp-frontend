@@ -48,7 +48,7 @@ const LocalSwitcher = () => {
 			<button
 				onClick={() => setOpened((prev) => !prev)}
 				style={{ boxShadow: "0px 0px 6px 0px #00000040" }}
-				className="bg-white flex h-[35px] min-w-[60px] justify-between gap-[8px] items-center rounded-full px-[8px] py-[5px]">
+				className="bg-white  flex h-[35px] min-w-[60px] justify-between gap-[8px] items-center rounded-full px-[8px] py-[5px]">
 				{localeLoaded ? (
 					locale === "ar" ? (
 						<Image
@@ -80,7 +80,7 @@ const LocalSwitcher = () => {
 					duration-150
 					${
 						opened ? "min-h-20" : "max-h-0"
-					} text-black bg-white top-14 items-start justify-around  flex flex-col rounded-md overflow-hidden`}>
+					} text-black bg-white top-14 shadow-md items-start justify-around  flex flex-col rounded-md overflow-hidden`}>
 				<div
 					className="flex h-full px-[12px] items-center cursor-pointer"
 					onClick={() => handleLocaleChange("ar")}>

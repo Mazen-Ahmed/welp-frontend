@@ -9,17 +9,18 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { FaSearch } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import { toast } from "react-toastify";
-import { getCurrentUserLocation } from "services";
 import { useBusinessesFilterStore } from "store/businesses-filters";
 
 const SearchInput = ({
 	translation,
+	lookup,
 	className,
 	data,
 	loading,
 }: {
 	translation: any;
 	loading: boolean;
+	lookup: any;
 	data: any;
 	className?: string;
 }) => {
@@ -178,7 +179,21 @@ const SearchInput = ({
 	function successFunction(position: any) {
 		const { coords } = position;
 
-		getCurrentUserLocation(coords);
+		const country = lookup(coords.longitude, coords.latitude, true);
+
+		const expiryDate = new Date();
+		expiryDate.setDate(expiryDate.getDate() + 3);
+		setCookie(
+			"location",
+			{
+				country: country[0],
+				long: coords.longitude,
+				lat: coords.latitude,
+			},
+			{ expires: expiryDate }
+		);
+
+		window.location.reload();
 	}
 
 	function errorFunction() {
