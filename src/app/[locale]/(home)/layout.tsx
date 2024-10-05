@@ -65,7 +65,14 @@ export default async function RootLayout({
 		<div
 			dir={locale === "ar" ? "rtl" : "ltr"}
 			lang={locale}
-			className={locale === "ar" ? tajawal.className : roboto.className}>
+			className={locale === "en" ? roboto.className : ""}
+			style={{
+				fontFamily:
+					locale === "ar"
+						? 'PrimaryFont, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
+						: "",
+				fontWeight: locale === "ar" ? 500 : 700,
+			}}>
 			<Navbar
 				isMobile={isMobile}
 				deviceType={deviceType}

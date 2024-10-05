@@ -190,3 +190,14 @@ export const debounce = (callback: Function, time: number) => {
 		timeout = setTimeout(() => callback(value, ...rest), time);
 	};
 };
+
+export const textReformat = (text: string, maxLength: number) => {
+	let finalText;
+
+	if (text.length > maxLength) {
+		finalText = text.slice(0, maxLength) + "...";
+
+		return finalText;
+	}
+	return text;
+};

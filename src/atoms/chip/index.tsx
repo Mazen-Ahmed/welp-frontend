@@ -12,7 +12,7 @@ const Chip = ({
 }) => {
 	return (
 		<div
-			className={`rounded-full  flex gap-2 md:gap-1 items-center justify-center text-[10px] font-[400] md:text-[15px] ${className}`}>
+			className={`rounded-full  flex gap-2 md:gap-1 items-center justify-center text-[10px] font-medium md:text-[15px] ${className}`}>
 			<h2>{text}</h2>
 			{icon && (
 				<Image

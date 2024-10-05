@@ -15,7 +15,7 @@ const DownloadApp = ({ translation }: { translation: any }) => {
 				<h1 className="text-2xl md:text-4xl font-bold my-2">
 					{translation.download}
 				</h1>
-				<p className="font-light text-gray-900 my-2 hidden md:block">
+				<p className="font-normal text-gray-900 my-2 hidden md:block">
 					{translation.available}
 				</p>
 
@@ -67,7 +67,7 @@ const DownloadApp = ({ translation }: { translation: any }) => {
 				/>
 			</div>
 			<div className="flex flex-col  text-center md:text-start  justify-center  order-3">
-				<p className="font-light text-gray-900 my-2 block md:hidden">
+				<p className="font-normal text-gray-900 my-2 block md:hidden">
 					{translation.available}
 				</p>
 

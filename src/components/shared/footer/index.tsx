@@ -6,7 +6,7 @@ const Footer = ({ translation }: { translation: any }) => {
 	return (
 		<div className="flex flex-col gap-4 ">
 			<div className="flex flex-col md:flex-row  bg-white rounded-t-3xl shadow-inner pt-[40px] px-5 md:px-[80px]  items-center md:items-start justify-start  md:justify-around gap-5 md:gap-14">
-				<div className="flex  md:w-full w-1/2 mx-auto  gap-2 flex-col items-start justify-center">
+				<div className="flex w-1/2 md:w-full  mx-auto  gap-2 flex-col items-center justify-center">
 					<Image
 						loading="lazy"
 						src="/logo.svg"
@@ -14,7 +14,7 @@ const Footer = ({ translation }: { translation: any }) => {
 						height={100}
 						alt="logo"
 					/>
-					<div className="flex gap-2">
+					<div className="flex w-full justify-between gap-4 md:justify-center ">
 						<Link target="_blank" href={"https://x.com/Welpusa"}>
 							<Image
 								loading="lazy"
@@ -60,9 +60,11 @@ const Footer = ({ translation }: { translation: any }) => {
 						</Link>
 					</div>
 				</div>
-				<div className="flex flex-col w-1/2 mx-auto md:w-full items-start justify-center gap-2 md:ps-10">
-					<h1 className="text-lg">{translation.importantLinks}</h1>
-					<ol className="text-gray-500 list-disc ms-5 flex flex-col gap-3 text-sm">
+				<div className="flex flex-col w-1/2 mx-auto md:w-full items-center md:items-start justify-center gap-2 md:ps-10">
+					<h1 className="text-lg xs:self-start md:self-start">
+						{translation.importantLinks}
+					</h1>
+					<ol className="text-gray-500 list-disc md:ms-4  flex flex-col gap-3 text-sm">
 						<li>
 							<Link href={"/"}>{translation.home}</Link>
 						</li>
@@ -95,7 +97,7 @@ const Footer = ({ translation }: { translation: any }) => {
 						</li>
 					</ol>
 				</div>
-				<div className="flex flex-col w-1/2 md:w-full mx-auto items-start justify-start gap-2 text-sm ">
+				<div className="flex flex-col xs:w-3/4 md:w-full mx-auto items-center md:items-start justify-start gap-2 text-sm ">
 					<h1 className="text-lg">{translation.offices}</h1>
 					<div className=" flex flex-col items-start justify-center text-gray-500">
 						<div className="flex flex-1 gap-1 text-sm">
@@ -138,7 +140,7 @@ const Footer = ({ translation }: { translation: any }) => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col w-1/2 mx-auto md:w-full items-start justify-start gap-3 ">
+				<div className="flex flex-col w-1/2 mx-auto md:w-full items-center md:items-start justify-start gap-3 ">
 					<h1 className="text-lg "> {translation.download}</h1>
 					<Link
 						target="_blank"
