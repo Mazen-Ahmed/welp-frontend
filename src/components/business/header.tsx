@@ -13,7 +13,7 @@ const BusinessesHeader = ({
 }) => {
 	return (
 		<div
-			className={`h-129  bg-scroll bg-cover bg-center bg-no-repeat md:bg-fixed`}
+			className={`h-[50vh] md:h-129   bg-scroll bg-cover bg-center bg-no-repeat md:bg-fixed`}
 			style={{
 				backgroundImage: `url(${image}) `,
 			}}>
@@ -23,7 +23,7 @@ const BusinessesHeader = ({
 					background:
 						"linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4))",
 				}}>
-				<h1 className="text-5xl font-bold text-center"> {title}</h1>
+				<h1 className="text-3xl font-bold text-center"> {title}</h1>
 
 				<div className=" flex items-center gap-5">
 					<div className="relative  flex items-center justify-center">

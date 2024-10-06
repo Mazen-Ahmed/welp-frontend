@@ -46,7 +46,7 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 			</Modal>
 			<button
 				style={{ boxShadow: " 0px 6px 21px 0px #00000014" }}
-				className="flex  justify-start p-[8px] gap-3 overflow-hidden rounded-md my-4 shadow-[0px 6px 21px 0px #00000014] bg-white cursor-pointer w-full"
+				className="flex  justify-start p-[8px] gap-3 overflow-hidden rounded-md mb-4 shadow-[0px 6px 21px 0px #00000014] bg-white cursor-pointer w-full"
 				onClick={() => setIsOpened(true)}>
 				<Image
 					loading="lazy"

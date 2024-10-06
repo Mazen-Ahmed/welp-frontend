@@ -60,7 +60,7 @@ const Menu = ({ slug }: { slug: string }) => {
 	};
 
 	return (
-		<div className="bg-gray-50   py-3">
+		<div className="bg-gray-50   pb-3">
 			<div
 				className={`
 					${!(categoriesLoading && productsLoading) && " sticky top-0 "}
