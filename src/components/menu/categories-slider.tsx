@@ -51,7 +51,7 @@ const CategoriesSlider = ({
 	return (
 		<div
 			ref={sliderRef}
-			className="flex gap-2 overflow-auto  no-scrollbar items-center  py-[16px]  mx-3 md:mx-10">
+			className="flex gap-2 overflow-auto  no-scrollbar items-center z-50 py-[16px]  mx-3 md:mx-10">
 			{loading && loaders}
 			{data?.map((item: ProductTypesType) => (
 				<button

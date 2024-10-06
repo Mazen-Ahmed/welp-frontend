@@ -4,9 +4,12 @@ import Modal from "atoms/modal";
 import { ProductType } from "interfaces";
 import Image from "next/image";
 import React, { useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 const MenuSectorCard = ({ item }: { item: ProductType }) => {
 	const [isOpened, setIsOpened] = useState(false);
+
+	const [isLoading, setIsLoading] = useState(true);
 
 	const data = {
 		isOpened,
@@ -46,12 +49,18 @@ const MenuSectorCard = ({ item }: { item: ProductType }) => {
 			<div
 				className="flex flex-col  text-black rounded-2xl overflow-hidden bg-white shadow-md text-xs cursor-pointer"
 				onClick={() => setIsOpened(true)}>
+				{isLoading && (
+					<div className="w-[114px] h-[114px]  flex items-center self-center rounded-[15px] justify-center absolute top-[8px] start-[8px] bg-gray-200">
+						<ClipLoader color="#FF0000" size={30} />
+					</div>
+				)}
 				<Image
 					loading="lazy"
 					src={item.image}
 					className="  object-cover h-32 w-auto"
 					width={150}
 					height={30}
+					onLoad={() => setIsLoading(false)}
 					alt={item.name}
 				/>
 				<div className="my-4 flex justify-between px-3">

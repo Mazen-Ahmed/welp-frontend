@@ -33,7 +33,7 @@ const CustomSwiper = ({
 		<div className="py-2 md:px-10 lg:px-10 w-full ">
 			{domLoaded ? (
 				<div className=" flex flex-col justify-center  py-2 rounded-md min-h-96 w-full">
-					<div className="relative z-0">
+					<div className="relative z-0 ">
 						<Swiper
 							dir={locale === "ar" ? "rtl" : "ltr"}
 							modules={[Navigation, FreeMode]}
