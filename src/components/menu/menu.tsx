@@ -60,10 +60,10 @@ const Menu = ({ slug }: { slug: string }) => {
 	};
 
 	return (
-		<div className="bg-gray-50   pb-3">
+		<div className="bg-gray-50    pb-3">
 			<div
 				className={`
-					${!(categoriesLoading && productsLoading) && " sticky top-0 "}
+					${!(categoriesLoading && productsLoading) && " sticky top-0  z-[9999]  "}
 					bg-gray-50 
 				`}>
 				{isOverflowed && (

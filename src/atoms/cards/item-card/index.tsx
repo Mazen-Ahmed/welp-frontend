@@ -53,7 +53,11 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 				onClick={() => setIsOpened(true)}>
 				{isLoading && (
 					<div className="w-[102px] h-[100px]  flex items-center self-center rounded-md justify-center  start-[8px] bg-gray-200">
-						<ClipLoader color="#FF0000" size={30} />
+						<ClipLoader
+							color="#FF0000"
+							className="z-40"
+							size={30}
+						/>
 					</div>
 				)}
 
