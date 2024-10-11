@@ -27,7 +27,9 @@
 		"addPlace": "Add Place",
 		"ex": "Example: Restaurants, Hospitals, Services...",
 		"where": "Where...",
-		"currentLocation": "Current Location"
+		"currentLocation": "Current Location",
+		"openApp": "Open App",
+		"openingApp": "Opening App..."
 	},
 	"footer": {
 		"importantLinks": "Important Links",

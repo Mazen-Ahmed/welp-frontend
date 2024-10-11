@@ -9,6 +9,8 @@ import { ClipLoader } from "react-spinners";
 const ItemCard = ({ item }: { item: ProductType }) => {
 	const [isOpened, setIsOpened] = useState(false);
 
+	const [isModalImageLoading, setIsModalImageLoading] = useState(true);
+
 	const [isLoading, setIsLoading] = useState(true);
 
 	const data = {
@@ -21,6 +23,15 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 	return (
 		<>
 			<Modal className={"w-full max-w-sm"} data={data}>
+				{isModalImageLoading && (
+					<div className="w-full h-72 flex items-center self-center rounded-md justify-center  start-[8px] bg-gray-200">
+						<ClipLoader
+							color="#FF0000"
+							className="z-40"
+							size={30}
+						/>
+					</div>
+				)}
 				<Image
 					loading="lazy"
 					src={item.image}
@@ -28,6 +39,12 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 					width={150}
 					height={30}
 					alt={item.name}
+					style={{
+						borderRadius: 5,
+						opacity: isModalImageLoading ? 0 : 1,
+						position: isModalImageLoading ? "absolute" : "static",
+					}}
+					onLoad={() => setIsModalImageLoading(false)}
 				/>
 				<div className="my-4 flex justify-between">
 					<h2 className=" text-xl font-bold leading-tight">

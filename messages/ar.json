@@ -27,7 +27,9 @@
 		"addPlace": "إضافة مكان",
 		"ex": "مثال: مطاعم,مستشفيات,خدمات...",
 		"where": "أين...",
-		"currentLocation": "الموقع الحالي"
+		"currentLocation": "الموقع الحالي",
+		"openApp": "فتح التطبيق",
+		"openingApp": "فتح التطبيق..."
 	},
 	"footer": {
 		"importantLinks": "روابط هامة",

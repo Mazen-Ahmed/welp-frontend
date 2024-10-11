@@ -1,11 +1,14 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const OpenApp = ({ deviceType }: { deviceType: string }) => {
 	const [isOpening, setIsOpening] = useState(false);
+
+	const navbarT = useTranslations("navbar");
 
 	const pathname = usePathname();
 
@@ -28,6 +31,8 @@ const OpenApp = ({ deviceType }: { deviceType: string }) => {
 		}, 1000);
 	};
 
+	console.log(pathname);
+
 	return (
 		<div className="bg-gray-50 flex mx-3 rounded-lg justify-between mt-4 px-2 py-4 text-white">
 			<Image
@@ -41,7 +46,7 @@ const OpenApp = ({ deviceType }: { deviceType: string }) => {
 			<button
 				onClick={handleOpenApp}
 				className="bg-secondary p-2 px-4 rounded-full">
-				{isOpening ? "Opening app..." : "فتح الأبليكيشن"}
+				{isOpening ? navbarT("openingApp") : navbarT("openApp")}
 			</button>
 		</div>
 	);

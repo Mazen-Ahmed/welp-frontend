@@ -83,6 +83,8 @@ export default async function RootLayout({
 					addPlace: navbarT("addPlace"),
 					ex: navbarT("ex"),
 					where: navbarT("where"),
+					openApp: navbarT("openApp"),
+					openingApp: navbarT("openingApp"),
 					currentLocation: navbarT("currentLocation"),
 					placeName: businessT("placeName"),
 					city: businessT("city"),

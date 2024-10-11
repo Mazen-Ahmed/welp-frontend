@@ -35,7 +35,7 @@ const Modal = ({
 			{isOpened && (
 				<div
 					onClick={handleClose}
-					className="fixed inset-0 z-50 transition-opacity duration-300 ease-in-out bg-gray-500 bg-opacity-75">
+					className="fixed inset-0 z-[9999] transition-opacity duration-300 ease-in-out bg-gray-500 bg-opacity-75">
 					<div className="flex items-center justify-center min-h-screen px-4 pt-4">
 						<div
 							onClick={(e) => e.stopPropagation()}

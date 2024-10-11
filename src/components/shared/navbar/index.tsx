@@ -115,8 +115,17 @@ const Navbar = ({
 		window.location.href =
 			pathname === "/" ? "welp://home" : `welp://${pathname}`;
 
+		let visibilityChanged = false;
+		const handleVisibilityChange = () => {
+			if (document.hidden) {
+				visibilityChanged = true;
+			}
+		};
+
+		document.addEventListener("visibilitychange", handleVisibilityChange);
+
 		setTimeout(() => {
-			if (!document.hidden) {
+			if (!visibilityChanged) {
 				setIsOpeningApp(false);
 				if (deviceType === "android") {
 					window.location.href =
@@ -126,8 +135,16 @@ const Navbar = ({
 						"https://apps.apple.com/us/app/welp-rating-social-reviews/id6478454000";
 				}
 			}
+
+			// Cleanup the event listener
+			document.removeEventListener(
+				"visibilitychange",
+				handleVisibilityChange
+			);
 		}, 1000);
 	};
+
+	console.log(pathname === "/" ? "welp://home" : `welp://${pathname}`);
 
 	return (
 		<div
@@ -159,16 +176,9 @@ const Navbar = ({
 						<button
 							onClick={handleOpenApp}
 							className="bg-secondary w-[118px] h-[32px] flex items-center text-sm justify-center text-white rounded-full ">
-							{isOpeningApp ? (
-								<ClipLoader
-									className="animate-spin"
-									color="#fff"
-									loading={true}
-									size={25}
-								/>
-							) : (
-								"فتح الأبليكيشن"
-							)}
+							{isOpeningApp
+								? translation.openingApp
+								: translation.openApp}
 						</button>
 						<div className=" w-auto h-full shrink-0">
 							<Link href={"/"}>
