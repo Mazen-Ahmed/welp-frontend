@@ -55,7 +55,7 @@ const BusinessCard = ({
 				</div>
 			)}
 			<Image
-				loading="lazy"
+				loading="eager"
 				alt={item.name}
 				src={item.cover_image || "/header.webp"}
 				width={250}
