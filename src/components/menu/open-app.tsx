@@ -31,7 +31,6 @@ const OpenApp = ({ deviceType }: { deviceType: string }) => {
 		}, 1000);
 	};
 
-	console.log(pathname);
 
 	return (
 		<div className="bg-gray-50 flex mx-3 rounded-lg justify-between mt-4 px-2 py-4 text-white">

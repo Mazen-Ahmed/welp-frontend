@@ -35,10 +35,12 @@ const HomePage = async ({ params }: { params: any }) => {
 	return (
 		<main>
 			<Header translation={{ bestPlatform: homeT("bestPlatform") }} />
-			<Categories
-				categories={categories}
-				translation={{ more: homeT("more") }}
-			/>
+			{categories?.length > 0 && (
+				<Categories
+					categories={categories}
+					translation={{ more: homeT("more") }}
+				/>
+			)}
 			<Featured
 				locale={params.locale}
 				featuredBusinesses={featured_businesses}

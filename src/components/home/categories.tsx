@@ -32,18 +32,18 @@ const Categories = ({
 				{filteredCategories?.map(
 					(item: CategoryType, index: number) => (
 						<Link
-							key={item.id}
+							key={item?.id}
 							className={`${
 								(index === 5 || index === 6) &&
 								"block md:hidden"
 							}`}
 							href={
 								searchKeyword
-									? `/biz?category=${item.id}&search=${searchKeyword}`
-									: `/biz?category=${item.id}`
+									? `/biz?category=${item?.id}&search=${searchKeyword}`
+									: `/biz?category=${item?.id}`
 							}>
 							<CategoriesItem
-								text={item.name}
+								text={item?.name}
 								icon={item?.icon}
 							/>
 						</Link>

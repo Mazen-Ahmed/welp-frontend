@@ -13,8 +13,6 @@ const useCitiesList = () => {
 
 	const locale = useLocale();
 
-	console.log(locale);
-
 	const listCitiesAction = () => {
 		setLoading(true);
 		getCitiesList()

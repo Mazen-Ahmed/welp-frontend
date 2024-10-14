@@ -9,10 +9,10 @@ import { useCitiesList } from "hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { memo } from "react";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { SlMagnifier } from "react-icons/sl";
-import ClipLoader from "react-spinners/ClipLoader";
 
 const Navbar = ({
 	translation,
@@ -144,7 +144,6 @@ const Navbar = ({
 		}, 1000);
 	};
 
-	console.log(pathname === "/" ? "welp://home" : `welp://${pathname}`);
 
 	return (
 		<div
@@ -369,4 +368,4 @@ const Navbar = ({
 	);
 };
 
-export default Navbar;
+export default memo(Navbar);
