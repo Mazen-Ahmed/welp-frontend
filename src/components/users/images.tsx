@@ -15,7 +15,7 @@ const ImagesSection = () => {
 				width={250}
 				height={300}
 				alt="iphone"
-				className="w-56 h-56 md:max-w-[100%] md:h-[auto]"
+				className="w-56  md:max-w-[100%] md:h-[auto]"
 			/>
 			<Image
 				src="/iPhone.webp"
