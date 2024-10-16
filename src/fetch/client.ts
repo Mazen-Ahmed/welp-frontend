@@ -25,6 +25,8 @@ const sharedHeaders = () => {
 	headers["Content-Type"] = "application/json";
 	headers["App-ID"] = appId || "WEBSITE";
 
+	console.log(appId, "app_ID");
+
 	return headers;
 };
 const getAuthHeader = () => {
