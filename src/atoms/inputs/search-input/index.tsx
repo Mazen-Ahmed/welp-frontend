@@ -5,7 +5,7 @@ import { CityType } from "interfaces";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, memo } from "react";
 import { FaSearch } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import { toast } from "react-toastify";
@@ -317,4 +317,4 @@ const SearchInput = ({
 	);
 };
 
-export default SearchInput;
+export default memo(SearchInput);

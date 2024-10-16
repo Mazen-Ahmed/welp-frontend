@@ -41,7 +41,8 @@ const getHeaders = async (withAuth: boolean) => {
 	if (locale) headers["Accept-Language"] = locale;
 	if (locationCookie) headers["X-Country-Code"] = locationCookie;
 	headers["Content-Type"] = "application/json";
-	headers["App-ID"] = appId as string;
+	headers["App-ID"] = appId || "WEBSITE";
+	console.log(appId, "APP_ID");
 
 	if (withAuth) {
 		const tokenCookie = cookies().get("token")?.value;
@@ -59,7 +60,6 @@ const handleRequest = async (
 	withFormData = false
 ) => {
 	let headers = await getHeaders(withAuth);
-
 
 	if (!withFormData && data) {
 		headers["Content-Type"] = "application/json";
