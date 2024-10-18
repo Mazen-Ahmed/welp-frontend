@@ -25,7 +25,7 @@ const BusinessPageInfo = ({ translation }: { translation: any }) => {
 						description={translation.reviewsDescription}
 					/>
 					<ForBusinessCard
-						image="/for-businesses-3.png"
+						image="/for-businesses-3.webp"
 						title={translation.presence}
 						description={translation.maintain}
 					/>

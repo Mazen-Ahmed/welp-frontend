@@ -75,13 +75,19 @@ const BusinessCard = ({
 				{item.reviews_stats?.reviews_count})
 			</div>
 			<div className="flex flex-wrap gap-2 px-3 py-1">
-				{item.categories.map((category: any) => (
+				{item.categories.slice(0, 2).map((category: any) => (
 					<Chip
 						key={category?.id}
 						text={category.name}
 						className="bg-gray-400 py-1 px-2 text-white !md:text-[10px] !text-[10px] font-normal"
 					/>
 				))}
+				{item.categories.length > 2 && (
+					<Chip
+						text={`+${item.categories.length - 2}`}
+						className="bg-gray-400 py-1 px-2 text-white !md:text-[10px] !text-[10px] font-normal"
+					/>
+				)}
 			</div>
 			<div className="flex items-center gap-1 px-3 py-1">
 				<SlLocationPin className="text-red-600" />

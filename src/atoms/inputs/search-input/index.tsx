@@ -254,6 +254,7 @@ const SearchInput = ({
 					className="text-gray-800 text-xs md:text-sm h-full w-full outline-none"
 				/>
 				<button
+					name="cancel"
 					onClick={() => {
 						setCity(null);
 						setCityValue(null);
@@ -272,6 +273,7 @@ const SearchInput = ({
 						className="absolute -bottom-[16.5rem] z-50 mt-2 w-full h-64 shadow-md bg-white scroll-m-2 rounded-md py-3 px-2 overflow-auto">
 						<button
 							className="text-red-500 font-bold my-2 text-sm cursor-pointer bg-none text-start custom-scrollbar"
+							name="search"
 							onClick={() => {
 								if (location) {
 									setShowCities(false);
