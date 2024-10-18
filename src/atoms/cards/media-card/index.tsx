@@ -1,6 +1,6 @@
 "use client";
 
-import { Modal } from "atoms";
+import { ImageModal, Modal } from "atoms";
 import { MediaType } from "interfaces";
 import Image from "next/image";
 import { useState } from "react";
@@ -14,16 +14,18 @@ const MediaCard = ({ item }: { item: MediaType }) => {
 	};
 	return (
 		<div className="rounded-2xl shadow-lg overflow-hidden">
-			<Modal className={"w-full md:w-1/2 h-96 pb-1"} data={data}>
+			<ImageModal
+				className={"w-full md:w-1/2 h-96 pb-1 bg-transparent"}
+				data={data}>
 				<Image
 					loading="lazy"
 					src={item.file}
-					className=" rounded-2xl object-contain mb-5 max-h-72 w-full"
+					className=" rounded-2xl object-contain mb-5 max-h-96 w-full"
 					width={150}
 					height={150}
 					alt={item.file}
 				/>
-			</Modal>
+			</ImageModal>
 			<Image
 				loading="lazy"
 				onClick={() => setIsOpened(true)}

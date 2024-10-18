@@ -27,6 +27,7 @@ import ReviewsLoader from "./loaders/skeleton/reviews";
 import TagsLoader from "./loaders/skeleton/tags";
 import LocalSwitcher from "./locale-switcher";
 import CustomMap from "./map";
+import ImageModal from "./modal/img-modal";
 import CustomPagination from "./pagination";
 import RadioButton from "./radio";
 import CustomSwiper from "./slider";
@@ -37,6 +38,7 @@ const Modal = dynamic(() => import("./modal/index"), {
 });
 
 export {
+	ImageModal,
 	FileInput,
 	LocalSwitcher,
 	BusinessHorizontalCard,

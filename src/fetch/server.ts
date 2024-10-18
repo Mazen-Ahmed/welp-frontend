@@ -70,6 +70,9 @@ const handleRequest = async (
 		method,
 		headers,
 		body,
+		next: {
+			revalidate: 600,
+		},
 	});
 
 	if (res.status === 401 && withAuth) {

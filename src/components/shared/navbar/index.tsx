@@ -3,16 +3,16 @@
 import { Modal, SearchInput, LocalSwitcher } from "atoms";
 import { AddPlacesForm } from "components";
 import { getCookie, setCookie } from "cookies-next";
-// @ts-ignore
-import * as lookup from "coordinate_to_country";
 import { useCitiesList } from "hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { memo } from "react";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { SlMagnifier } from "react-icons/sl";
+import { getUserLocation } from "services";
 
 const Navbar = ({
 	translation,
@@ -28,6 +28,8 @@ const Navbar = ({
 	const [isOpeningApp, setIsOpeningApp] = useState(false);
 
 	const [isModalOpened, setIsModalOpened] = useState(false);
+
+	const router = useRouter();
 
 	const modalData = {
 		isOpened: isModalOpened,
@@ -88,22 +90,27 @@ const Navbar = ({
 		}
 	}, []);
 
-	function successFunction(position: any) {
+	async function successFunction(position: any) {
 		const { coords } = position;
 
-		const country = lookup(coords.longitude, coords.latitude, true);
+		const address: any = await getUserLocation(
+			coords.longitude,
+			coords.latitude
+		);
 
 		const expiryDate = new Date();
 		expiryDate.setDate(expiryDate.getDate() + 3);
 		setCookie(
 			"location",
 			{
-				country: country[0],
+				country: address?.country_code,
 				long: coords.longitude,
 				lat: coords.latitude,
 			},
 			{ expires: expiryDate }
 		);
+
+		router.refresh();
 	}
 
 	function errorFunction() {
@@ -143,7 +150,6 @@ const Navbar = ({
 			);
 		}, 1000);
 	};
-
 
 	return (
 		<div
@@ -194,7 +200,7 @@ const Navbar = ({
 					</div>
 				)}
 				<SearchInput
-					lookup={lookup}
+					lookup={{}}
 					data={data}
 					loading={loading}
 					className="hidden lg:flex"
@@ -357,7 +363,7 @@ const Navbar = ({
 						: "overflow-hidden max-h-0"
 				}    md:px-10 lg:px-20`}>
 				<SearchInput
-					lookup={lookup}
+					lookup={{}}
 					data={data}
 					loading={loading}
 					className="flex lg:hidden"

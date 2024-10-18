@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
 import { getHomePageData } from "services";
 
-export const dynamic = "force-dynamic"; // defaults to auto
+export const dynamic = "force-dynamic";
 
 export async function metadata({
 	params: locale,

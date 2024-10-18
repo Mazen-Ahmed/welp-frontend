@@ -54,6 +54,7 @@ export const post = async (
 		method: "POST",
 		headers: { ...headers, ...sharedHeaders },
 		body,
+		next: { revalidate: 600 },
 	});
 
 	let parsedRes;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, memo } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -110,4 +110,4 @@ const CustomSwiper = ({
 	);
 };
 
-export default CustomSwiper;
+export default memo(CustomSwiper);
