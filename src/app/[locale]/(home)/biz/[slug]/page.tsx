@@ -55,7 +55,6 @@ const BusinessPage = async ({ params }: { params: any }) => {
 	const breadCrumbsT = await getTranslations("breadCrumbs");
 
 	const {
-		id,
 		name,
 		city_name,
 		business_type,
@@ -77,6 +76,7 @@ const BusinessPage = async ({ params }: { params: any }) => {
 		facebook_profile_url,
 		tiktok_profile_url,
 		youtube_profile_url,
+		opening_hours,
 	} = await getBusiness(slug);
 
 	return (
@@ -130,7 +130,7 @@ const BusinessPage = async ({ params }: { params: any }) => {
 					{products?.length > 0 && (
 						<MenuSector
 							products={products}
-							slug={id}
+							slug={slug}
 							translation={{
 								menu: businessT("menu"),
 								seeAll: businessT("seeAll"),
@@ -168,6 +168,7 @@ const BusinessPage = async ({ params }: { params: any }) => {
 
 					<BusinessOpen
 						isOpened={is_opened}
+						openingHours={opening_hours}
 						translation={{
 							isOpened: businessT("isOpened"),
 							isClosed: businessT("isClosed"),

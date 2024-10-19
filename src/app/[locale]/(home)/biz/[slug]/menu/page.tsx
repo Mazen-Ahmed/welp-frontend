@@ -39,7 +39,3 @@ const MenuPage = async ({ params }: { params: any }) => {
 };
 
 export default MenuPage;
-
-MenuPage.getLayout = function getLayout({ MenuPage }: { MenuPage: ReactNode }) {
-	return <div>{MenuPage}</div>;
-};

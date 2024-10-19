@@ -12,9 +12,11 @@ const getISODay = function () {
 
 export const getOpenedHourHandler = (
 	openingHours: Array<OpeningHoursType>,
-	open: boolean
+	open: boolean,
+	pm: any,
+	am: any
 ) => {
-	const fromOrTo = open ? "time_from" : "time_to";
+	const fromOrTo = open ? "time_to" : "time_from";
 
 	const openingHourItem = openingHours.find(
 		(item) => item.day == getISODay()
@@ -27,7 +29,7 @@ export const getOpenedHourHandler = (
 	const time = openingHourItem[fromOrTo]?.split(":")[0];
 	const formattedTime = parseInt(time, 10) % 12 || 12; // Convert to 12-hour format
 
-	const period = parseInt(time, 10) < 12 ? "ص" : "م";
+	const period = parseInt(time, 10) < 12 ? am : pm;
 
 	return `${formattedTime} ${period}`;
 };
@@ -50,6 +52,13 @@ export function formatDate(dateStr: string): string {
 
 	return formattedDate;
 }
+
+export const openingHoursFormat = (timeStr: any, pm: string, am: string) => {
+	const [hours, minutes] = timeStr.split(":");
+	const period = hours >= 12 ? pm : am;
+	const formattedHours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
+	return `${formattedHours}${period}`;
+};
 
 export const textLimitHandler = (text: string, maxLength: number) => {
 	let reformattedText;

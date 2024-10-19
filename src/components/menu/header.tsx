@@ -1,11 +1,15 @@
 "use client";
 
 import { Chip } from "atoms";
+import { useTranslations } from "next-intl";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getOpenedHourHandler } from "utils";
 
 const BusinessHeader = ({ business }: any) => {
+	const sharedT = useTranslations("shared");
+
 	const {
 		slug,
 		name,
@@ -66,18 +70,36 @@ const BusinessHeader = ({ business }: any) => {
 
 				{is_opened ? (
 					<div className="flex  gap-1 text-xs md:text-md">
-						<p className="text-success font-bold">مفتوح الأن</p>
+						<p className="text-success font-bold">
+							{sharedT("opened")}
+						</p>
 						<p className="text-black">
-							يغلق عند الساعة&nbsp;
-							{getOpenedHourHandler(opening_hours, false)}
+							{sharedT("closingAt", {
+								hour: getOpenedHourHandler(
+									opening_hours,
+									is_opened,
+									sharedT("pm"),
+									sharedT("am")
+								),
+							})}
+							&nbsp;
 						</p>
 					</div>
 				) : (
 					<div className="flex  gap-1 text-xs md:text-md">
-						<p className="text-red-500 font-bold">مغلق</p>
+						<p className="text-red-500 font-bold">
+							{sharedT("closed")}
+						</p>
 						<p className="text-black">
-							يفتح عند الساعة&nbsp;
-							{getOpenedHourHandler(opening_hours, true)}
+							{sharedT("openingAt", {
+								hour: getOpenedHourHandler(
+									opening_hours,
+									is_opened,
+									sharedT("pm"),
+									sharedT("am")
+								),
+							})}
+							&nbsp;
 						</p>
 					</div>
 				)}

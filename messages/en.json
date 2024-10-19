@@ -153,5 +153,22 @@
 		"required": "Required",
 		"minLength": "This field length cannot be less than {{minLength}} ",
 		"minSearchLength": "Please enter at least 2 letters for the search."
+	},
+	"shared": {
+		"am": "AM",
+		"pm": "PM",
+		"saturday": "Saturday",
+		"sunday": "Sunday",
+		"monday": "Monday",
+		"tuesday": "Tuesday",
+		"wednesday": "Wednesday",
+		"thursday": "Thursday",
+		"friday": "Friday",
+		"from": "From",
+		"to": "To",
+		"openingAt": "Opening at {hour}",
+		"closingAt": "Closing at {hour}",
+		"opened": "Opened",
+		"closed": "Closed"
 	}
 }
