@@ -1,3 +1,4 @@
+import { Link } from "navigation";
 import Image from "next/image";
 
 const ForBusinessesHeader = ({ translation }: { translation: any }) => {
@@ -17,18 +18,31 @@ const ForBusinessesHeader = ({ translation }: { translation: any }) => {
 					{translation.presence}
 				</div>
 				<div className=" flex gap-[31px] mt-4">
-					<Image
-						src={"/google-store.png"}
-						width={150}
-						height={120}
-						alt="google"
-					/>
-					<Image
-						src={"/app-store.png"}
-						width={150}
-						height={120}
-						alt="apple"
-					/>
+					<Link
+						target="_blank"
+						href={
+							"https://play.google.com/store/apps/details?id=com.welp.bussiness"
+						}>
+						<Image
+							src={"/google-store.png"}
+							width={150}
+							height={120}
+							alt="google"
+						/>
+					</Link>
+
+					<Link
+						target="_blank"
+						href={
+							"https://apps.apple.com/app/welp-business/id6692606495"
+						}>
+						<Image
+							src={"/app-store.png"}
+							width={150}
+							height={120}
+							alt="apple"
+						/>
+					</Link>
 				</div>
 			</div>
 		</div>

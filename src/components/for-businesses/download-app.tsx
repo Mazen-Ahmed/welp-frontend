@@ -1,3 +1,4 @@
+import { Link } from "navigation";
 import Image from "next/image";
 import React from "react";
 
@@ -21,18 +22,31 @@ const DownloadBusinessApp = ({ translation }: { translation: any }) => {
 					<h3>{translation.startWork}</h3>
 				</div>
 				<div className=" flex items-center md:items-start gap-[23px] md:gap-10">
-					<Image
-						src={"/google-store.png"}
-						width={150}
-						height={120}
-						alt="google"
-					/>
-					<Image
-						src={"/app-store.png"}
-						width={150}
-						height={120}
-						alt="apple"
-					/>
+					<Link
+						target="_blank"
+						href={
+							"https://play.google.com/store/apps/details?id=com.welp.bussiness"
+						}>
+						<Image
+							src={"/google-store.png"}
+							width={150}
+							height={120}
+							alt="google"
+						/>
+					</Link>
+
+					<Link
+						target="_blank"
+						href={
+							"https://apps.apple.com/app/welp-business/id6692606495"
+						}>
+						<Image
+							src={"/app-store.png"}
+							width={150}
+							height={120}
+							alt="apple"
+						/>
+					</Link>
 				</div>
 			</div>
 			<div className="flex-1 h-[50vh] md:h-[70vh] flex items-center justify-end order-1 md:order-2">
