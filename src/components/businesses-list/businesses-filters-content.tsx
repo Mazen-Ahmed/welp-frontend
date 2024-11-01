@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckBox, RadioButton } from "atoms";
+import { CategoryType } from "interfaces";
 import React, { useEffect } from "react";
 import { GiCancel } from "react-icons/gi";
 import { useBusinessesFilterStore } from "store/businesses-filters";
@@ -8,9 +9,11 @@ import { useBusinessesFilterStore } from "store/businesses-filters";
 const BusinessesFiltersContent = ({
 	translation,
 	setOpened,
+	category,
 }: {
 	translation: any;
 	setOpened?: (state: boolean) => void;
+	category?: CategoryType;
 }) => {
 	const setIsOpened = useBusinessesFilterStore((state) => state.setIsOpened);
 
@@ -44,10 +47,6 @@ const BusinessesFiltersContent = ({
 
 	const isLoading = useBusinessesFilterStore((state) => state.isLoading);
 
-	const category = useBusinessesFilterStore((state) => state.category);
-
-	const categories = useBusinessesFilterStore((state) => state.categories);
-
 	const resetFiltersHandler = () => {
 		setPriceCategory(null);
 		setIsOpened(false);
@@ -64,7 +63,7 @@ const BusinessesFiltersContent = ({
 		<>
 			<div className="flex flex-col items-start  gap-2">
 				<div className="w-full flex justify-between items-center ">
-					<h1 className="font-bold">{translation.filters}</h1>
+					<h2 className="font-bold">{translation.filters}</h2>
 					{(isOpened ||
 						isDeliveryAvailable ||
 						priceCategory ||
@@ -77,7 +76,7 @@ const BusinessesFiltersContent = ({
 						)}
 				</div>
 				<hr className="my-2 h-[1px] bg-gray-100 w-full	" />
-				<h1 className="font-bold">{translation.suggested}</h1>
+				<h3 className="font-bold">{translation.suggested}</h3>
 				<CheckBox
 					disabled={isLoading}
 					checked={isOpened}
@@ -107,7 +106,7 @@ const BusinessesFiltersContent = ({
 			</div>
 			<hr className="my-2 h-[2px] bg-gray-100	" />
 			<div className="flex flex-col items-start  gap-2">
-				<h1 className="font-bold">{translation.price}</h1>
+				<h3 className="font-bold">{translation.price}</h3>
 				<CheckBox
 					checked={priceCategory === "$$$$"}
 					onChange={(e) => {
@@ -161,12 +160,12 @@ const BusinessesFiltersContent = ({
 					label={translation.low}
 				/>
 			</div>
-			{categories?.length > 0 && (
+			{category?.children && category?.children?.length > 0 && (
 				<>
 					<hr className="my-2 h-[1px] bg-gray-100	" />
-					<h1 className="font-bold mb-3">{category?.name}</h1>
+					<h3 className="font-bold mb-3">{category?.name}</h3>
 					<div className="flex flex-col items-start h-40  overflow-auto gap-2">
-						{categories?.map((item) => (
+						{category?.children?.map((item) => (
 							<CheckBox
 								key={item.id}
 								checked={

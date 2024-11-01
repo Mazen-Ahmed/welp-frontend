@@ -64,9 +64,9 @@ rounded-[15px] justify-center absolute top-[8px] start-[8px] bg-gray-200">
 				onLoad={() => setIsLoading(false)}
 			/>
 			<div className="flex flex-col items-start justify-between min-h-24 gap-1 my-1">
-				<h1 className="font-bold text-start text-[12px] md:text-[18px] w-32 overflow-hidden text-ellipsis whitespace-nowrap">
+				<h3 className="font-bold text-start text-[12px] md:text-[18px] w-32 overflow-hidden text-ellipsis whitespace-nowrap">
 					{item.name}
-				</h1>
+				</h3>
 				<div className="flex items-center flex-wrap gap-1 ">
 					{ratingHandler(item.reviews_stats?.rating_score || 0)}(
 					{item.reviews_stats?.reviews_count})

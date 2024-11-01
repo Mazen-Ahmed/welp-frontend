@@ -1,9 +1,11 @@
 "use client";
 
+import { Link } from "navigation";
+import { env } from "next-runtime-env";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useMemo } from "react";
+import { FaDirections } from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { RiGlobalFill } from "react-icons/ri";
 import { SiWhatsapp } from "react-icons/si";
@@ -56,6 +58,12 @@ const BusinessLocation = ({
 		[]
 	);
 
+	const handleGetDirections = () => {
+		const googleMapsUrl = `${env(
+			"NEXT_PUBLIC_MAPS_DIRECTIONS_URL"
+		)}/?api=1&destination=${lat},${lng}`;
+		window.open(googleMapsUrl, "_blank");
+	};
 	return (
 		<div>
 			<h3 className="text-xl my-1 font-bold">
@@ -65,6 +73,13 @@ const BusinessLocation = ({
 				<div className="w-full h-[40vh]">
 					<CustomMap lng={lng} lat={lat} name={name} />
 				</div>
+				<button
+					onClick={handleGetDirections}
+					className="flex justify-between items-center w-full py-3 gap-1 px-2">
+					<p>{translation.directions}</p>
+					<FaDirections className="w-6 h-6 text-blue-500" />
+				</button>
+
 				{location && (
 					<>
 						<hr />

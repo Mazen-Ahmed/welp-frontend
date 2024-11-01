@@ -7,7 +7,7 @@ import { getBusinessesList } from "services";
 import { useBusinessesFilterStore } from "store/businesses-filters";
 import { useCitiesStore } from "store/cities";
 
-const useBusinessesList = (currentLocation: string) => {
+const useBusinessesList = (currentLocation: string, category: any) => {
 	const [businesses, setBusinesses] = useState<Array<BusinessType>>([]);
 
 	const [page, setPage] = useState<number>(1);
@@ -19,8 +19,6 @@ const useBusinessesList = (currentLocation: string) => {
 	const isOpened = useBusinessesFilterStore((state) => state.isOpened);
 
 	const searchParams = useSearchParams();
-
-	const category = searchParams.get("category");
 
 	const location =
 		getCookie("location") && JSON?.parse(getCookie("location") as string);
@@ -58,7 +56,7 @@ const useBusinessesList = (currentLocation: string) => {
 	const filteredCategories =
 		categoriesToFilterWith?.length > 0
 			? categoriesToFilterWith
-			: [parseInt(category as string)];
+			: [category];
 
 	const finalizedSearchKeyword = searchKeyword || searchParams.get("search");
 
@@ -120,7 +118,7 @@ const useBusinessesList = (currentLocation: string) => {
 	]);
 
 	useEffect(() => {
-		if (page === 1 && search) {
+		if (page === 1) {
 			fetchBusinessesHandler();
 			window.scrollTo({ top: 0, behavior: "smooth" });
 		}

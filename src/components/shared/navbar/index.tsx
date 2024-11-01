@@ -4,10 +4,8 @@ import { Modal, SearchInput, LocalSwitcher } from "atoms";
 import { AddPlacesForm } from "components";
 import { getCookie, setCookie } from "cookies-next";
 import { useCitiesList } from "hooks";
+import { useRouter, usePathname, Link } from "navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { memo } from "react";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
@@ -46,22 +44,24 @@ const Navbar = ({
 
 	const linksWithWhiteBackground = [
 		"/categories",
+		"/categories/:path",
 		"/businesses",
 		"/biz",
 		"/biz/user/:path",
 		"/terms",
 		"/privacy",
 		"/download/1",
+		"/category/:path",
 	];
 
 	const linksWithOpenAppButton = ["menu"];
 
 	const regexPatterns = linksWithWhiteBackground.map(
-		(link) => link.replace(/:path/, "([^/]+)") // Replace dynamic ":path" with a regex pattern
+		(link) => `(?:/(ar|en))?${link.replace(/:path/, "([^/]+)")}$`
 	);
 
 	const withWhiteBackground = !!regexPatterns.find((pattern) => {
-		const regex = new RegExp(`^${pattern}$`);
+		const regex = new RegExp(pattern);
 		return regex.test(pathname) || pathname.includes("menu");
 	});
 
@@ -200,7 +200,6 @@ const Navbar = ({
 					</div>
 				)}
 				<SearchInput
-					lookup={{}}
 					data={data}
 					loading={loading}
 					className="hidden lg:flex"
@@ -363,7 +362,6 @@ const Navbar = ({
 						: "overflow-hidden max-h-0"
 				}    md:px-10 lg:px-20`}>
 				<SearchInput
-					lookup={{}}
 					data={data}
 					loading={loading}
 					className="flex lg:hidden"

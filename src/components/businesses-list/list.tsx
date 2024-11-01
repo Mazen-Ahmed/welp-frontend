@@ -9,14 +9,22 @@ import {
 } from "atoms";
 import { ResponsiveBusinessesFilters } from "components";
 import { useBusinessesList } from "hooks";
+import { CategoryType } from "interfaces";
+import { Link } from "navigation";
 import { useLocale } from "next-intl";
-import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
-const BusinessesList = ({ translation }: { translation: any }) => {
+const BusinessesList = ({
+	translation,
+	category,
+}: {
+	translation: any;
+	category?: CategoryType;
+}) => {
 	const { businesses, page, setPage, count, loading } = useBusinessesList(
-		translation.currentLocation
+		translation.currentLocation,
+		category?.slug || category?.id
 	);
 	const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
@@ -77,6 +85,7 @@ const BusinessesList = ({ translation }: { translation: any }) => {
 				}}
 			/>
 			<div className="col-span-4 lg:col-span-3 w-full min-h-screen">
+				{/* <h1 className="text-3xl mb-2">{category?.name}</h1> */}
 				<div className="grid grid-cols-1 md:grid-cols-3 md:gap-5">
 					{loading &&
 						windowWidth !== null &&

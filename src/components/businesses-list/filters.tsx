@@ -2,9 +2,16 @@
 
 import BusinessesFiltersContent from "./businesses-filters-content";
 import { useGetCategory } from "hooks";
+import { CategoryType } from "interfaces";
 import { useSearchParams } from "next/navigation";
 
-const BusinessesFilters = ({ translation }: { translation: any }) => {
+const BusinessesFilters = ({
+	translation,
+	category,
+}: {
+	translation: any;
+	category?: CategoryType;
+}) => {
 	const params = useSearchParams();
 
 	const id = params.get("category");
@@ -14,6 +21,7 @@ const BusinessesFilters = ({ translation }: { translation: any }) => {
 	return (
 		<div className="col-span-1 hidden lg:block bg-gray-businesses shadow-md w-full h-screen rounded-3xl p-3 sticky top-0">
 			<BusinessesFiltersContent
+				category={category}
 				translation={{
 					filters: translation.filters,
 					price: translation.price,

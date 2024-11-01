@@ -93,9 +93,9 @@ const ItemCard = ({ item }: { item: ProductType }) => {
 					onLoad={() => setIsLoading(false)}
 				/>
 				<div className="flex flex-col items-start justify-between min-h-24 gap-1 my-2">
-					<h1 className="font-bold text-base md:text-lg">
+					<h3 className="font-bold text-base md:text-lg">
 						{item.name}
-					</h1>
+					</h3>
 					<p className="text-gray-600 text-start text-sm md:text-base">
 						{item.description}
 					</p>

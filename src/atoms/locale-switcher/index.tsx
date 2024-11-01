@@ -1,8 +1,8 @@
 "use client";
 
+import { usePathname, useRouter } from "navigation";
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { IoChevronDown } from "react-icons/io5";
 
@@ -12,17 +12,12 @@ const LocalSwitcher = () => {
 	const locale = useLocale();
 	const router = useRouter();
 	const dropdownRef = useRef<HTMLDivElement>(null);
+	const pathname = usePathname();
 
 	const handleLocaleChange = (newLocale: string) => {
-		if (locale !== newLocale) {
-			document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-
-			window.location.reload();
-
-			router.refresh();
-
-			setOpened(false);
-		}
+		router.replace(pathname, { locale: newLocale });
+		router.refresh();
+		setOpened(false);
 	};
 
 	useEffect(() => {
@@ -42,6 +37,8 @@ const LocalSwitcher = () => {
 			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	}, [dropdownRef]);
+
+	console.log(pathname, `/${pathname.split("/").splice(2).join("/")}`);
 
 	return (
 		<div className="relative" ref={dropdownRef}>

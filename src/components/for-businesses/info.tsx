@@ -3,7 +3,7 @@ import React from "react";
 
 const BusinessPageInfo = ({ translation }: { translation: any }) => {
 	return (
-		<div className="bg-orange-200 min-h-screen py-5">
+		<div className="bg-orange-200 min-h-96 py-5">
 			<div className="flex flex-col gap-5 ">
 				<ul className="list-disc justify-self-start w-full  px-10 md:px-24">
 					<li className=" font-bold text-start  text-gray-500  text-[20px] ">

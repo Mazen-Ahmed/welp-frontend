@@ -2,7 +2,7 @@
 
 import { BusinessCard, CustomSwiper } from "atoms";
 import { BusinessType } from "interfaces";
-import Link from "next/link";
+import { Link } from "navigation";
 import React from "react";
 import { SwiperSlide } from "swiper/react";
 
@@ -25,10 +25,13 @@ const Featured = ({
 		1000: {
 			slidesPerView: 4,
 		},
+		1300: {
+			slidesPerView: 5,
+		},
 	};
 
 	return (
-		<div className="mb-[24px] md:mb-10 md:min-h-[80vh]">
+		<div className="mb-[24px] md:mb-10 md:min-h-96">
 			<h1 className="text-center text-black text-3xl font-bold">
 				{translation.featuredBusinesses}
 			</h1>

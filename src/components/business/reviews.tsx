@@ -37,7 +37,7 @@ const BusinessReviews = ({
 	};
 
 	return (
-		<div className="my-10">
+		<div className="my-10" id="reviews">
 			<h3 className="text-xl my-1 font-bold">{translation.reviews}</h3>
 
 			{loading ? (

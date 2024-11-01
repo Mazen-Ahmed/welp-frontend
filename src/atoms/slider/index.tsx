@@ -91,7 +91,7 @@ const CustomSwiper = ({
 					</div>
 				</div>
 			) : (
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-4 px-5 md:px-10">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-5 px-5 md:px-10">
 					<div className="py-2 w-full">
 						<div className="w-full h-80 rounded-md animate-pulse bg-gray-100" />
 					</div>
@@ -102,6 +102,9 @@ const CustomSwiper = ({
 						<div className="w-full h-80 rounded-md animate-pulse bg-gray-100" />
 					</div>
 					<div className="py-2 w-full hidden lg:block">
+						<div className="w-full h-80 rounded-md animate-pulse bg-gray-100" />
+					</div>
+					<div className="py-2 w-full hidden max-xl:block">
 						<div className="w-full h-80 rounded-md animate-pulse bg-gray-100" />
 					</div>
 				</div>

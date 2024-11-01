@@ -1,9 +1,9 @@
 "use client";
 
+import { Link } from "navigation";
 import { useLocale } from "next-intl";
 import { env } from "next-runtime-env";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const DownloadApp = ({ translation }: { translation: any }) => {
@@ -12,9 +12,9 @@ const DownloadApp = ({ translation }: { translation: any }) => {
 	return (
 		<div className="flex px-10 md:px-20 flex-col md:flex-row bg-orange-200 min-h-96 gap-8  py-10 md:py-0  my-10  ">
 			<div className="flex flex-col  flex-1 text-center md:text-start  justify-center order-1">
-				<h1 className="text-2xl md:text-4xl font-bold my-2">
+				<h2 className="text-2xl md:text-4xl font-bold my-2">
 					{translation.download}
-				</h1>
+				</h2>
 				<p className="font-normal text-gray-900 my-2 hidden md:block">
 					{translation.available}
 				</p>

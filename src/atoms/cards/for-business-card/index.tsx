@@ -48,7 +48,7 @@ const ForBusinessCard = ({
 			</div>
 
 			<div className="px-3 pb-10">
-				<h1 className=" text-[14px] font-bold mb-3">{title}</h1>
+				<h3 className=" text-[14px] font-bold mb-3">{title}</h3>
 				<p className="text-gray-500 font-[10px]">
 					{textReformat(description, 100)}
 				</p>

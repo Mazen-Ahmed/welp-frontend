@@ -1,5 +1,5 @@
+import { Link } from "navigation";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const Footer = ({ translation }: { translation: any }) => {
@@ -61,9 +61,9 @@ const Footer = ({ translation }: { translation: any }) => {
 					</div>
 				</div>
 				<div className="flex flex-col w-1/2 mx-auto md:w-full items-center md:items-start justify-center gap-2 md:ps-10">
-					<h1 className="text-lg xs:self-start md:self-start">
+					<h2 className="text-lg xs:self-start md:self-start">
 						{translation.importantLinks}
-					</h1>
+					</h2>
 					<ol className="text-gray-500 list-disc md:ms-4  flex flex-col gap-3 text-sm">
 						<li>
 							<Link href={"/"}>{translation.home}</Link>
@@ -98,7 +98,7 @@ const Footer = ({ translation }: { translation: any }) => {
 					</ol>
 				</div>
 				<div className="flex flex-col xs:w-3/4 md:w-full mx-auto items-center md:items-start justify-start gap-2 text-sm ">
-					<h1 className="text-lg">{translation.offices}</h1>
+					<h2 className="text-lg">{translation.offices}</h2>
 					<div className=" flex flex-col items-start justify-center text-gray-500">
 						<div className="flex flex-1 gap-1 text-sm">
 							{translation.usa}:
@@ -110,7 +110,7 @@ const Footer = ({ translation }: { translation: any }) => {
 							{translation.egypt}:<p>{translation.cairo}</p>
 						</div>
 					</div>
-					<h1 className="text-lg">{translation.contactUs}</h1>
+					<h2 className="text-lg">{translation.contactUs}</h2>
 					<div className=" flex flex-col items-start justify-center text-gray-500">
 						<p className="flex gap-1">
 							{translation.address}: California
@@ -141,7 +141,7 @@ const Footer = ({ translation }: { translation: any }) => {
 					</div>
 				</div>
 				<div className="flex flex-col w-1/2 mx-auto md:w-full items-center md:items-start justify-start gap-3 ">
-					<h1 className="text-lg "> {translation.download}</h1>
+					<h2 className="text-lg "> {translation.download}</h2>
 					<Link
 						target="_blank"
 						href={

@@ -2,25 +2,25 @@
 
 import { getCookie, setCookie } from "cookies-next";
 import { CityType } from "interfaces";
+import { useRouter, usePathname } from "navigation";
 import { useLocale } from "next-intl";
 import Image from "next/image";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState, useCallback, memo } from "react";
 import { FaSearch } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import { toast } from "react-toastify";
+import { getUserLocation } from "services";
 import { useBusinessesFilterStore } from "store/businesses-filters";
 
 const SearchInput = ({
 	translation,
-	lookup,
 	className,
 	data,
 	loading,
 }: {
 	translation: any;
 	loading: boolean;
-	lookup: any;
 	data: any;
 	className?: string;
 }) => {
@@ -176,24 +176,27 @@ const SearchInput = ({
 		}
 	};
 
-	function successFunction(position: any) {
+	async function successFunction(position: any) {
 		const { coords } = position;
 
-		const country = lookup(coords.longitude, coords.latitude, true);
+		const address: any = await getUserLocation(
+			coords.longitude,
+			coords.latitude
+		);
 
 		const expiryDate = new Date();
 		expiryDate.setDate(expiryDate.getDate() + 3);
 		setCookie(
 			"location",
 			{
-				country: country[0],
+				country: address?.country_code,
 				long: coords.longitude,
 				lat: coords.latitude,
 			},
 			{ expires: expiryDate }
 		);
 
-		window.location.reload();
+		router.refresh();
 	}
 
 	function errorFunction() {

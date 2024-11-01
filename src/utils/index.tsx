@@ -54,7 +54,7 @@ export function formatDate(dateStr: string): string {
 }
 
 export const openingHoursFormat = (timeStr: any, pm: string, am: string) => {
-	const [hours, minutes] = timeStr.split(":");
+	const [hours, minutes] = timeStr?.split(":");
 	const period = hours >= 12 ? pm : am;
 	const formattedHours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
 	return `${formattedHours}${period}`;

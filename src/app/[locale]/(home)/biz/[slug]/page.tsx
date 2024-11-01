@@ -11,6 +11,7 @@ import {
 	MenuSector,
 	Rating,
 } from "components";
+import { routesUrls } from "data";
 import { BusinessType } from "interfaces";
 import { Metadata } from "next";
 import { unstable_setRequestLocale, getTranslations } from "next-intl/server";
@@ -47,6 +48,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 const BusinessPage = async ({ params }: { params: any }) => {
+	const { home, category } = routesUrls;
+
 	unstable_setRequestLocale(params.locale);
 
 	const { slug } = params;
@@ -77,6 +80,7 @@ const BusinessPage = async ({ params }: { params: any }) => {
 		tiktok_profile_url,
 		youtube_profile_url,
 		opening_hours,
+		categories,
 	} = await getBusiness(slug);
 
 	return (
@@ -90,10 +94,12 @@ const BusinessPage = async ({ params }: { params: any }) => {
 			<div className="w-full px-4 md:px-12 my-[20px]">
 				<BreadCrumbs
 					links={[
-						{ name: breadCrumbsT("home"), href: "/" },
+						{ name: breadCrumbsT("home"), href: home },
 						{
-							name: breadCrumbsT("businesses"),
-							href: "/categories",
+							name: categories[0]?.name,
+							href: `${category}/${
+								categories[0].slug || categories[0].id
+							}`,
 						},
 						{ name: name, href: "" },
 					]}
@@ -161,6 +167,7 @@ const BusinessPage = async ({ params }: { params: any }) => {
 						tiktok_profile_url={tiktok_profile_url}
 						youtube_profile_url={youtube_profile_url}
 						translation={{
+							directions: businessT("directions"),
 							locationAndContact: businessT("locationAndContact"),
 							site: businessT("site"),
 						}}

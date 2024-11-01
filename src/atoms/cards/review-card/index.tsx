@@ -37,7 +37,7 @@ const ReviewCard = ({ item }: { item: ReviewType }) => {
 				<div className="flex flex-col gap-3 items-start justify-center flex-1 ">
 					<div className="flex w-full items-start">
 						<div className="flex flex-col justify-around gap-2 w-full">
-							<h1 className="font-bold">{item.reviewer.name}</h1>
+							<h3 className="font-bold">{item.reviewer.name}</h3>
 							<h4 className="text-xs whitespace-nowrap">
 								{formatDate(item.created_at)}
 							</h4>

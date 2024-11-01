@@ -20,12 +20,14 @@ const BusinessOpen = ({
 	const [opened, setOpened] = useState(false);
 
 	const sharedT = useTranslations("shared");
+	console.log(openingHours);
+
 	return (
 		<button
 			onClick={() => setOpened((prev) => !prev)}
 			className="rounded-3xl overflow-hidden border-1 border-solid  border-gray-100 my-7 w-full h-auto">
 			{isOpened ? (
-				<div className="flex items-center text-green-500 bg-none font-semibold gap-1 p-3">
+				<div className="flex items-center text-green-500 bg-none font-semibold gap-1 p-3 ">
 					<div className="bg-green-500 text-white rounded-md p-1">
 						<FaRegClock />
 					</div>
@@ -37,7 +39,7 @@ const BusinessOpen = ({
 					/>
 				</div>
 			) : (
-				<div className="flex items-center text-red-500 font-semibold gap-1">
+				<div className="flex items-center text-red-500 font-semibold gap-1 p-3 ">
 					<div className="bg-red-500 text-white rounded-md p-1">
 						<IoLockClosed />
 					</div>
@@ -46,31 +48,33 @@ const BusinessOpen = ({
 			)}
 
 			<div
-				className={`px-3  duration-150 ${
+				className={`px-3  duration-150  ${
 					opened ? `max-h-96 pb-3` : `max-h-0`
 				}`}>
-				{openingHours.map(
-					({
-						day,
-						time_from,
-						time_to,
-					}: {
-						day: number;
-						time_from: any;
-						time_to: any;
-					}) => (
-						<div key={day} className="flex my-[2px]">
-							{`${sharedT(daysMap[day])}: ${sharedT(
-								"from"
-							)} ${openingHoursFormat(
-								time_from,
-								sharedT("pm"),
-								sharedT("am")
-							)} - ${sharedT("to")}
+				{openingHours.time_from &&
+					openingHours.time_to &&
+					openingHours.map(
+						({
+							day,
+							time_from,
+							time_to,
+						}: {
+							day: number;
+							time_from: any;
+							time_to: any;
+						}) => (
+							<div key={day} className="flex my-[2px]">
+								{`${sharedT(daysMap[day])}: ${sharedT(
+									"from"
+								)} ${openingHoursFormat(
+									time_from,
+									sharedT("pm"),
+									sharedT("am")
+								)} - ${sharedT("to")}
 							${openingHoursFormat(time_to, sharedT("pm"), sharedT("am"))}`}
-						</div>
-					)
-				)}
+							</div>
+						)
+					)}
 			</div>
 		</button>
 	);

@@ -1,6 +1,6 @@
 import { MenuSectorCard } from "atoms";
 import { ProductType } from "interfaces";
-import Link from "next/link";
+import { Link } from "navigation";
 
 const MenuSector = ({
 	products,

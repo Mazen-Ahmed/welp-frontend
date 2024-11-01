@@ -21,6 +21,7 @@ const Categories: React.FC<any> = async ({ params }: { params: any }) => {
 				fetchedCategories={categories}
 			/> */}
 			<CategoriesList
+				isChildren={false}
 				translation={{
 					noCategories: categoriesT("noCategories"),
 				}}

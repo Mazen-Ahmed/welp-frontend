@@ -11,9 +11,11 @@ export const getCategoriesList = async (exclude_first_parent: boolean) => {
 	}
 };
 
-export const getCategory = async (id: string) => {
+export const getCategory = async (id: string, isServer = false) => {
 	try {
-		const { data } = await client.get(`utilities/categories/${id}`);
+		const { data } = isServer
+			? await server.get(`utilities/categories/${id}`)
+			: await client.get(`utilities/categories/${id}`);
 
 		return data;
 	} catch (error) {

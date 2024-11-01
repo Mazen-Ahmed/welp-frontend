@@ -66,9 +66,9 @@ const BusinessCard = ({
 				onLoad={() => setIsLoading(false)}
 			/>
 			<div className="flex justify-between items-center px-2 mt-2">
-				<h1 className="text-sm font-bold w-60 overflow-hidden text-ellipsis whitespace-nowrap text-animation">
+				<h3 className="text-sm font-bold w-60 overflow-hidden text-ellipsis whitespace-nowrap text-animation">
 					{item.name}
-				</h1>
+				</h3>
 			</div>
 			<div className="flex items-center flex-wrap gap-2 px-3 py-1">
 				{ratingHandler(item.reviews_stats?.rating_score || 0)}(
